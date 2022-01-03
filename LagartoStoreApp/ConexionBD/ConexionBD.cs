@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LagartoStoreApp
+namespace LagartoStoreApp.ConexionBD
 {
     public static class ConexionBD
     {
@@ -39,7 +39,7 @@ namespace LagartoStoreApp
                 MySqlCommand mySqlCommand = new MySqlCommand(SQL, GetConexionBD());
                 mySqlCommand.CommandType = CommandType.Text;
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
-                mySqlDataAdapter.Fill(dataSet);                
+                mySqlDataAdapter.Fill(dataSet);
             }
             catch (Exception ex)
             {

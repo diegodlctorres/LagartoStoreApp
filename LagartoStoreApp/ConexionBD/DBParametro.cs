@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LagartoStoreApp
+namespace LagartoStoreApp.ConexionBD
 {
     public class DBParametro
     {
@@ -13,8 +13,8 @@ namespace LagartoStoreApp
 
         public DBParametro(string nombre, object valor)
         {
-            this.Nombre = nombre;
-            this.Valor = valor;
+            Nombre = nombre;
+            Valor = valor;
         }
     }
 }
