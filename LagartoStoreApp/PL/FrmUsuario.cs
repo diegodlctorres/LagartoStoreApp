@@ -20,10 +20,6 @@ namespace LagartoStoreApp.PL
             grdConsulta.AutoGenerateColumns = false;
         }
 
-        private void BtnNuevo_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
@@ -40,6 +36,12 @@ namespace LagartoStoreApp.PL
             {
                 throw;
             }
+        }
+
+        private void btnNuevoUsuario_Click(object sender, EventArgs e)
+        {
+            FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario(this);
+            frmNuevoUsuario.ShowDialog();
         }
     }
 }
