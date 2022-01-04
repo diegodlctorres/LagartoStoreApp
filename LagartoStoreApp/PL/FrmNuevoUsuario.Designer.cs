@@ -1,5 +1,5 @@
 ﻿
-namespace LagartoStoreApp.Views
+namespace LagartoStoreApp.PL
 {
     partial class FrmNuevoUsuario
     {

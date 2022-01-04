@@ -2,12 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace LagartoStoreApp.ConexionBD
+namespace LagartoStoreApp.DAL
 {
     public static class ConexionBD
     {
@@ -22,14 +18,9 @@ namespace LagartoStoreApp.ConexionBD
 
                 conexionBD.Open();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("MySql Connection: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
+            catch (Exception) { throw; }
             return conexionBD;
         }
-
-
 
         public static DataSet GetData(string SQL)
         {
@@ -41,10 +32,7 @@ namespace LagartoStoreApp.ConexionBD
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
                 mySqlDataAdapter.Fill(dataSet);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("MySql Connection: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
+            catch (Exception) { throw; }
             finally
             {
                 conexionBD.Close();
@@ -65,10 +53,7 @@ namespace LagartoStoreApp.ConexionBD
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
                 mySqlDataAdapter.Fill(dataSet);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("MySql Connection: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
+            catch (Exception) { throw; }
             finally
             {
                 conexionBD.Close();
@@ -76,25 +61,22 @@ namespace LagartoStoreApp.ConexionBD
             return dataSet;
         }
 
-        public static void SetData(string SQL)
+        public static void SetData(string SQL, out int rowsAfected)
         {
             try
             {
                 MySqlCommand mySqlCommand = new MySqlCommand(SQL, GetConexionBD());
                 mySqlCommand.CommandType = CommandType.Text;
-                mySqlCommand.ExecuteNonQuery();
+                rowsAfected = mySqlCommand.ExecuteNonQuery();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("MySql Connection: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
+            catch (Exception) { throw; }
             finally
             {
                 conexionBD.Close();
             }
         }
 
-        public static void SetData(string SQL, List<DBParametro> parametros)
+        public static void SetData(string SQL, List<DBParametro> parametros, out int rowsAfected)
         {
             DataSet dataSet = new DataSet();
             try
@@ -103,12 +85,9 @@ namespace LagartoStoreApp.ConexionBD
                 mySqlCommand.CommandType = CommandType.StoredProcedure;
                 if (parametros != null)
                     parametros.ForEach(x => mySqlCommand.Parameters.AddWithValue(x.Nombre, x.Valor));
-                mySqlCommand.ExecuteNonQuery();
+                rowsAfected = mySqlCommand.ExecuteNonQuery();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("MySql Connection: \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
+            catch (Exception) { throw; }
             finally
             {
                 conexionBD.Close();

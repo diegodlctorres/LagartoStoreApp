@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LagartoStoreApp.Models
+namespace LagartoStoreApp.BLL
 {
     public class Colaborador : Usuario
     {

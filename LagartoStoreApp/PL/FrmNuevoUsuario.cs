@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LagartoStoreApp.Views
+namespace LagartoStoreApp.PL
 {
     public partial class FrmNuevoUsuario : Form
     {

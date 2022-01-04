@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LagartoStoreApp.Models
+namespace LagartoStoreApp.BLL
 {
     public abstract class Entidad
     {
@@ -11,8 +11,9 @@ namespace LagartoStoreApp.Models
 
         protected Entidad(int id, string nombre)
         {
-            this.id = id;
-            Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
+            this.id = id > 0 ? id : throw new ArgumentException("El Id es incorrecto.");
+            Nombre = !string.IsNullOrEmpty(nombre) || nombre.Length > 0 ? 
+                nombre.ToUpper() : throw new ArgumentNullException(nameof(nombre));
         }
 
         #region Propiedades

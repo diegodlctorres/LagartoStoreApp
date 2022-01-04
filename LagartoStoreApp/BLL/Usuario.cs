@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LagartoStoreApp.Models
+namespace LagartoStoreApp.BLL
 {
     public class Usuario : Entidad
     {
@@ -14,11 +14,16 @@ namespace LagartoStoreApp.Models
 
         public Usuario(int id, string nombre, string apellido, int telefono, char sexo, string correo, int dni) : base(id, nombre)
         {
-            Apellido = apellido ?? throw new ArgumentNullException(nameof(apellido));
-            Correo = correo ?? throw new ArgumentNullException(nameof(correo));
-            Sexo = sexo == 'M' || sexo == 'F' ? sexo : throw new ArgumentException("Sexo incorrecto.");
-            Telefono = telefono.ToString().Length == 9 && telefono > 900000000 ? telefono : throw new ArgumentException("Teléfono incorrecto.");
-            Dni = dni.ToString().Length == 8 && dni > 10000000 ? dni : throw new ArgumentException("DNI incorrecto.");
+            Apellido = !string.IsNullOrEmpty(apellido) || apellido.Length > 0 ? 
+                apellido.ToUpper() : throw new ArgumentNullException(nameof(apellido));
+            Correo = correo.Contains("@") && (correo.Contains(".edu") || correo.Contains(".com")) ?
+                correo : throw new ArgumentException("Correo incorrecto.");
+            Sexo = sexo == 'M' || sexo == 'F' ? 
+                sexo : throw new ArgumentException("Sexo incorrecto.");
+            Telefono = telefono.ToString().Length == 9 && telefono > 900000000 ? 
+                telefono : throw new ArgumentException("Teléfono incorrecto.");
+            Dni = dni.ToString().Length == 8 && dni > 10000000 ? 
+                dni : throw new ArgumentException("DNI incorrecto.");
         }
 
         #region Propiedades

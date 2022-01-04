@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LagartoStoreApp.Models
+namespace LagartoStoreApp.BLL
 {
     public class Cargo : Entidad
     {

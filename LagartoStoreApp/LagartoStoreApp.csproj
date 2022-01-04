@@ -89,31 +89,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConexionBD\ConexionBD.cs" />
-    <Compile Include="ConexionBD\DBParametro.cs" />
-    <Compile Include="Models\Cargo.cs" />
-    <Compile Include="Models\Colaborador.cs" />
-    <Compile Include="Models\Entidad.cs" />
-    <Compile Include="Views\FrmNuevoUsuario.cs">
+    <Compile Include="DAL\ConexionBD.cs" />
+    <Compile Include="DAL\DBParametro.cs" />
+    <Compile Include="BLL\Cargo.cs" />
+    <Compile Include="BLL\Colaborador.cs" />
+    <Compile Include="BLL\Entidad.cs" />
+    <Compile Include="DAL\ICrud.cs" />
+    <Compile Include="PL\FrmNuevoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmNuevoUsuario.Designer.cs">
+    <Compile Include="PL\FrmNuevoUsuario.Designer.cs">
       <DependentUpon>FrmNuevoUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmUsuario.cs">
+    <Compile Include="PL\FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmUsuario.Designer.cs">
+    <Compile Include="PL\FrmUsuario.Designer.cs">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Turno.cs" />
+    <Compile Include="BLL\Turno.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Usuario.cs" />
-    <EmbeddedResource Include="Views\FrmNuevoUsuario.resx">
+    <Compile Include="BLL\Usuario.cs" />
+    <EmbeddedResource Include="PL\FrmNuevoUsuario.resx">
       <DependentUpon>FrmNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmUsuario.resx">
+    <EmbeddedResource Include="PL\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -125,6 +126,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\UsuarioDAL.cs" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\LagartoStoreApp.Models.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
