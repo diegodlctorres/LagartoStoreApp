@@ -9,13 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LagartoStoreApp
+namespace LagartoStoreApp.Views
 {
     public partial class FrmUsuario : Form
     {
         public FrmUsuario()
         {
             InitializeComponent();
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
