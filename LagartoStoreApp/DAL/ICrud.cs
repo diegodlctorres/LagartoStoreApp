@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace LagartoStoreApp.DAL
 {
-    public interface ICrud
+    internal interface ICrud<T>
     {
-        void Crear();
+        public void Create(T entidad);
 
+        public void Delete(int id);
+
+        public List<T> GetAll();
+
+        public T GetByID(int id);
+
+        public void Update(T entidad);
     }
 }

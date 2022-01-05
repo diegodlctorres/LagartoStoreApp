@@ -71,7 +71,7 @@ namespace LagartoStoreApp.PL
             {
                 if (usuario is null)
                 {
-                    UsuarioDAL.CreateUsuario(new Usuario(1,
+                    AppEngine.usuarioDAL.Create(new Usuario(1,
                         nombreTextBox.Text,
                         apellidoTextBox.Text,
                         Convert.ToInt32(!string.IsNullOrEmpty(telefonoTextBox.Text) ? telefonoTextBox.Text : "0"),
@@ -89,7 +89,7 @@ namespace LagartoStoreApp.PL
                     usuario.Sexo = rdoMasculino.Checked ? 'M' : 'F';
                     usuario.Correo = correoTextBox.Text;
                     usuario.Dni = Convert.ToInt32(!string.IsNullOrEmpty(dniTextBox.Text) ? dniTextBox.Text : "0");
-                    UsuarioDAL.UpdateUsuario(usuario);
+                    AppEngine.usuarioDAL.Update(usuario);
 
                     MessageBox.Show("Se actualizó al usuario exitosamente.", "Actualizar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }

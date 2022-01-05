@@ -33,8 +33,6 @@ namespace LagartoStoreApp.PL
                 BuscarUsuarios();
         }
 
-
-
         private void GrdConsulta_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == cEditar.Index || e.ColumnIndex == cEliminar.Index)
@@ -56,7 +54,7 @@ namespace LagartoStoreApp.PL
                             MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                         if (dialogResult == DialogResult.OK)
                         {
-                            UsuarioDAL.DeleteUsuario(usuario.Id);
+                            AppEngine.usuarioDAL.Delete(usuario.Id);
                             MessageBox.Show("Registro eliminado exitosamente.", "Registro de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                             BuscarUsuarios();
                         }
@@ -73,7 +71,8 @@ namespace LagartoStoreApp.PL
         {
             try
             {
-                Fuente.DataSource = usuarios = new BindingList<Usuario>(UsuarioDAL.GetUsuarios());
+                txtBuscar.Text = "";
+                Fuente.DataSource = usuarios = new BindingList<Usuario>(AppEngine.usuarioDAL.GetAll());
             }
             catch (Exception ex)
             {

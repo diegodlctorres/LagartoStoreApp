@@ -29,8 +29,7 @@ namespace LagartoStoreApp.BLL
 
         public override string ToString()
         {
-            return string.Format("Turno {0}: {1}:{2} - {3}:{4}",
-                Nombre, HoraInicio.Hour, horaInicio.Minute, HoraFin.Hour, HoraFin.Minute);
+            return string.Format("Turno {0}: {1:HH:mm} - {2:HH:mm}", Nombre.ToLower(), HoraInicio, HoraFin);
         }
     }
 }

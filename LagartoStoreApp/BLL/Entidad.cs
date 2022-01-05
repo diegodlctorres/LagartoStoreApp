@@ -13,7 +13,7 @@ namespace LagartoStoreApp.BLL
         {
             this.id = id > 0 ? id : throw new ArgumentException("El Id es incorrecto.");
             Nombre = !string.IsNullOrEmpty(nombre) || nombre.Length > 0 ? 
-                nombre.ToUpper() : throw new ArgumentNullException(nameof(nombre));
+                nombre.Trim().ToUpper() : throw new ArgumentNullException(nameof(nombre));
         }
 
         #region Propiedades

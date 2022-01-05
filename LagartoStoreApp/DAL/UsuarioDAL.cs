@@ -8,26 +8,29 @@ using LagartoStoreApp.BLL;
 
 namespace LagartoStoreApp.DAL
 {
-    public abstract class UsuarioDAL
+    public sealed class UsuarioDAL : ICrud<Usuario>
     {
-        public static Usuario GetUsuarioById(int id)
+        public void Create(Usuario usuario)
+        {
+            if (usuario is null) throw new ArgumentNullException(nameof(usuario));
+
+            ConexionBD.SetData("INSERT INTO USUARIOS (NOMBRE, APELLIDO, DNI, CORREO, SEXO, TELEFONO) " +
+                               "VALUES ('" + usuario.Nombre + "', '" + usuario.Apellido + "', " + usuario.Dni + ", '" + usuario.Correo + "', '" + usuario.Sexo + "', " + usuario.Telefono + ")",
+                               out int rows);
+
+            if (rows == 0) throw new Exception("No se actualizó ningún registro.");
+        }
+
+        public void Delete(int id)
         {
             if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
 
-            DataTable dataTable = ConexionBD.GetData("SELECT * FROM USUARIOS WHERE USUARIOS.ID_USUARIO = " + id).Tables[0];
+            ConexionBD.SetData("DELETE FROM USUARIOS WHERE USUARIOS.ID_USUARIO = " + id, out int rows);
 
-            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró al usuario de ID: " + id + ".");
-
-            return new Usuario(Convert.ToInt32(dataTable.Rows[0]["ID_USUARIO"]),
-                               dataTable.Rows[0]["NOMBRE"].ToString(),
-                               dataTable.Rows[0]["APELLIDO"].ToString(),
-                               Convert.ToInt32(dataTable.Rows[0]["TELEFONO"]),
-                               Convert.ToChar(dataTable.Rows[0]["SEXO"]),
-                               dataTable.Rows[0]["CORREO"].ToString(),
-                               Convert.ToInt32(dataTable.Rows[0]["DNI"]));
+            if (rows == 0) throw new Exception("No se eliminó ningún registro.");
         }
 
-        public static List<Usuario> GetUsuarios()
+        public List<Usuario> GetAll()
         {
             DataTable dataTable = ConexionBD.GetData("SELECT * FROM USUARIOS").Tables[0];
 
@@ -46,19 +49,25 @@ namespace LagartoStoreApp.DAL
             return usuarios;
         }
 
-        public static void DeleteUsuario(int id)
+        public Usuario GetByID(int id)
         {
             if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
 
-            ConexionBD.SetData("DELETE FROM USUARIOS WHERE USUARIOS.ID_USUARIO = " + id, out int rows);
+            DataTable dataTable = ConexionBD.GetData("SELECT * FROM USUARIOS WHERE USUARIOS.ID_USUARIO = " + id).Tables[0];
 
-            if (rows == 0) throw new Exception("No se eliminó ningún registro.");
+            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró al usuario de ID: " + id + ".");
+
+            return new Usuario(Convert.ToInt32(dataTable.Rows[0]["ID_USUARIO"]),
+                               dataTable.Rows[0]["NOMBRE"].ToString(),
+                               dataTable.Rows[0]["APELLIDO"].ToString(),
+                               Convert.ToInt32(dataTable.Rows[0]["TELEFONO"]),
+                               Convert.ToChar(dataTable.Rows[0]["SEXO"]),
+                               dataTable.Rows[0]["CORREO"].ToString(),
+                               Convert.ToInt32(dataTable.Rows[0]["DNI"]));
         }
 
-        public static void UpdateUsuario(Usuario usuario)
+        public void Update(Usuario usuario)
         {
-            if (usuario.Id < 1) throw new Exception("El ID: " + usuario.Id + " es incorrecto.");
-
             ConexionBD.SetData("UPDATE USUARIOS SET NOMBRE = '" + usuario.Nombre + "', " +
                                                    "APELLIDO = '" + usuario.Apellido + "', " +
                                                    "DNI = " + usuario.Dni + ", " +
@@ -66,17 +75,6 @@ namespace LagartoStoreApp.DAL
                                                    "SEXO = '" + usuario.Sexo + "', " +
                                                    "TELEFONO = " + usuario.Telefono +
                                             " WHERE ID_USUARIO = " + usuario.Id, out int rows);
-
-            if (rows == 0) throw new Exception("No se actualizó ningún registro.");
-        }
-
-        public static void CreateUsuario(Usuario usuario)
-        {
-            if (usuario is null) throw new ArgumentNullException(nameof(usuario));
-
-            ConexionBD.SetData("INSERT INTO USUARIOS (NOMBRE, APELLIDO, DNI, CORREO, SEXO, TELEFONO) " +
-                               "VALUES ('" + usuario.Nombre + "', '" + usuario.Apellido + "', " + usuario.Dni + ", '" + usuario.Correo + "', '" + usuario.Sexo + "', " + usuario.Telefono + ")",
-                               out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }
