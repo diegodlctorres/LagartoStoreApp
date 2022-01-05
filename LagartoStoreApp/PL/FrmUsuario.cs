@@ -20,17 +20,12 @@ namespace LagartoStoreApp.PL
             grdConsulta.AutoGenerateColumns = false;
         }
 
-
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
             try
             {
-                //UsuarioDAL.GetUsuarioById(1);
-                //UsuarioDAL.DeleteUsuario(202);
-                //Usuario usuario = new Usuario(1, "", "", 0, ' ', "", 0);
-                //UsuarioDAL.CreateUsuario(null);
-
-                grdConsulta.DataSource = UsuarioDAL.GetUsuarios();
+                Fuente.DataSource = UsuarioDAL.GetUsuarios();
+                grdConsulta.DataSource = Fuente;
             }
             catch (Exception)
             {
@@ -38,10 +33,16 @@ namespace LagartoStoreApp.PL
             }
         }
 
-        private void btnNuevoUsuario_Click(object sender, EventArgs e)
+        private void BtnNuevoUsuario_Click(object sender, EventArgs e)
         {
-            FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario(this);
-            frmNuevoUsuario.ShowDialog();
+            FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario();
+            if(frmNuevoUsuario.ShowDialog() == DialogResult.OK)
+                grdConsulta.DataSource = UsuarioDAL.GetUsuarios();
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Fuente.Filter = "NOMBRE LIKE '" + txtBuscar.Text + "'";
         }
     }
 }

@@ -44,6 +44,7 @@ namespace LagartoStoreApp.PL
             this.rdoFemenino = new System.Windows.Forms.RadioButton();
             this.btnNuevoUsuario = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             apellidoLabel = new System.Windows.Forms.Label();
             correoLabel = new System.Windows.Forms.Label();
             dniLabel = new System.Windows.Forms.Label();
@@ -56,7 +57,7 @@ namespace LagartoStoreApp.PL
             // 
             apellidoLabel.AutoSize = true;
             apellidoLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            apellidoLabel.Location = new System.Drawing.Point(43, 68);
+            apellidoLabel.Location = new System.Drawing.Point(42, 107);
             apellidoLabel.Name = "apellidoLabel";
             apellidoLabel.Size = new System.Drawing.Size(55, 15);
             apellidoLabel.TabIndex = 1;
@@ -66,7 +67,7 @@ namespace LagartoStoreApp.PL
             // 
             correoLabel.AutoSize = true;
             correoLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            correoLabel.Location = new System.Drawing.Point(43, 138);
+            correoLabel.Location = new System.Drawing.Point(42, 177);
             correoLabel.Name = "correoLabel";
             correoLabel.Size = new System.Drawing.Size(47, 15);
             correoLabel.TabIndex = 3;
@@ -76,7 +77,7 @@ namespace LagartoStoreApp.PL
             // 
             dniLabel.AutoSize = true;
             dniLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dniLabel.Location = new System.Drawing.Point(43, 103);
+            dniLabel.Location = new System.Drawing.Point(42, 142);
             dniLabel.Name = "dniLabel";
             dniLabel.Size = new System.Drawing.Size(28, 15);
             dniLabel.TabIndex = 5;
@@ -86,7 +87,7 @@ namespace LagartoStoreApp.PL
             // 
             nombreLabel.AutoSize = true;
             nombreLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nombreLabel.Location = new System.Drawing.Point(43, 33);
+            nombreLabel.Location = new System.Drawing.Point(42, 72);
             nombreLabel.Name = "nombreLabel";
             nombreLabel.Size = new System.Drawing.Size(53, 15);
             nombreLabel.TabIndex = 9;
@@ -96,7 +97,7 @@ namespace LagartoStoreApp.PL
             // 
             sexoLabel.AutoSize = true;
             sexoLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sexoLabel.Location = new System.Drawing.Point(43, 173);
+            sexoLabel.Location = new System.Drawing.Point(42, 212);
             sexoLabel.Name = "sexoLabel";
             sexoLabel.Size = new System.Drawing.Size(36, 15);
             sexoLabel.TabIndex = 11;
@@ -106,7 +107,7 @@ namespace LagartoStoreApp.PL
             // 
             telefonoLabel.AutoSize = true;
             telefonoLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            telefonoLabel.Location = new System.Drawing.Point(43, 208);
+            telefonoLabel.Location = new System.Drawing.Point(42, 247);
             telefonoLabel.Name = "telefonoLabel";
             telefonoLabel.Size = new System.Drawing.Size(56, 15);
             telefonoLabel.TabIndex = 13;
@@ -115,57 +116,62 @@ namespace LagartoStoreApp.PL
             // apellidoTextBox
             // 
             this.apellidoTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apellidoTextBox.Location = new System.Drawing.Point(116, 65);
+            this.apellidoTextBox.Location = new System.Drawing.Point(108, 104);
             this.apellidoTextBox.MaxLength = 45;
             this.apellidoTextBox.Name = "apellidoTextBox";
-            this.apellidoTextBox.Size = new System.Drawing.Size(165, 21);
-            this.apellidoTextBox.TabIndex = 2;
+            this.apellidoTextBox.Size = new System.Drawing.Size(175, 21);
+            this.apellidoTextBox.TabIndex = 1;
+            this.apellidoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidoTextBox_KeyPress);
             // 
             // correoTextBox
             // 
             this.correoTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.correoTextBox.Location = new System.Drawing.Point(116, 135);
+            this.correoTextBox.Location = new System.Drawing.Point(108, 174);
             this.correoTextBox.MaxLength = 60;
             this.correoTextBox.Name = "correoTextBox";
-            this.correoTextBox.Size = new System.Drawing.Size(165, 21);
-            this.correoTextBox.TabIndex = 4;
+            this.correoTextBox.Size = new System.Drawing.Size(175, 21);
+            this.correoTextBox.TabIndex = 3;
+            this.correoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CorreoTextBox_KeyPress);
             // 
             // dniTextBox
             // 
             this.dniTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dniTextBox.Location = new System.Drawing.Point(116, 100);
+            this.dniTextBox.Location = new System.Drawing.Point(108, 139);
             this.dniTextBox.MaxLength = 8;
             this.dniTextBox.Name = "dniTextBox";
             this.dniTextBox.Size = new System.Drawing.Size(56, 21);
-            this.dniTextBox.TabIndex = 6;
+            this.dniTextBox.TabIndex = 2;
+            this.dniTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DniTextBox_KeyPress);
             // 
             // nombreTextBox
             // 
             this.nombreTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreTextBox.Location = new System.Drawing.Point(116, 30);
+            this.nombreTextBox.Location = new System.Drawing.Point(108, 69);
             this.nombreTextBox.MaxLength = 45;
             this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(165, 21);
-            this.nombreTextBox.TabIndex = 10;
+            this.nombreTextBox.Size = new System.Drawing.Size(175, 21);
+            this.nombreTextBox.TabIndex = 0;
+            this.nombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // telefonoTextBox
             // 
             this.telefonoTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefonoTextBox.Location = new System.Drawing.Point(116, 205);
+            this.telefonoTextBox.Location = new System.Drawing.Point(108, 244);
             this.telefonoTextBox.MaxLength = 9;
             this.telefonoTextBox.Name = "telefonoTextBox";
             this.telefonoTextBox.Size = new System.Drawing.Size(64, 21);
-            this.telefonoTextBox.TabIndex = 14;
+            this.telefonoTextBox.TabIndex = 6;
+            this.telefonoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelefonoTextBox_KeyPress);
             // 
             // rdoMasculino
             // 
             this.rdoMasculino.AutoSize = true;
             this.rdoMasculino.Checked = true;
             this.rdoMasculino.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoMasculino.Location = new System.Drawing.Point(116, 171);
+            this.rdoMasculino.Location = new System.Drawing.Point(108, 210);
             this.rdoMasculino.Name = "rdoMasculino";
             this.rdoMasculino.Size = new System.Drawing.Size(81, 20);
-            this.rdoMasculino.TabIndex = 15;
+            this.rdoMasculino.TabIndex = 4;
             this.rdoMasculino.TabStop = true;
             this.rdoMasculino.Text = "Masculino";
             this.rdoMasculino.UseVisualStyleBackColor = true;
@@ -174,10 +180,10 @@ namespace LagartoStoreApp.PL
             // 
             this.rdoFemenino.AutoSize = true;
             this.rdoFemenino.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoFemenino.Location = new System.Drawing.Point(203, 171);
+            this.rdoFemenino.Location = new System.Drawing.Point(205, 210);
             this.rdoFemenino.Name = "rdoFemenino";
             this.rdoFemenino.Size = new System.Drawing.Size(78, 20);
-            this.rdoFemenino.TabIndex = 16;
+            this.rdoFemenino.TabIndex = 5;
             this.rdoFemenino.Text = "Femenino";
             this.rdoFemenino.UseVisualStyleBackColor = true;
             // 
@@ -187,10 +193,10 @@ namespace LagartoStoreApp.PL
             this.btnNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoUsuario.Location = new System.Drawing.Point(57, 240);
+            this.btnNuevoUsuario.Location = new System.Drawing.Point(57, 291);
             this.btnNuevoUsuario.Name = "btnNuevoUsuario";
             this.btnNuevoUsuario.Size = new System.Drawing.Size(102, 30);
-            this.btnNuevoUsuario.TabIndex = 19;
+            this.btnNuevoUsuario.TabIndex = 7;
             this.btnNuevoUsuario.Text = "Aceptar";
             this.btnNuevoUsuario.UseVisualStyleBackColor = false;
             this.btnNuevoUsuario.Click += new System.EventHandler(this.BtnNuevoUsuario_Click);
@@ -201,19 +207,32 @@ namespace LagartoStoreApp.PL
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(165, 240);
+            this.btnCancelar.Location = new System.Drawing.Point(165, 291);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(102, 30);
-            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
+            this.label4.Location = new System.Drawing.Point(14, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(296, 25);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "REGISTRAR NUEVO USUARIO";
             // 
             // FrmNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 300);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(214)))));
+            this.ClientSize = new System.Drawing.Size(325, 350);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNuevoUsuario);
             this.Controls.Add(this.rdoFemenino);
@@ -233,7 +252,6 @@ namespace LagartoStoreApp.PL
             this.Name = "FrmNuevoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo usuario";
-            this.Load += new System.EventHandler(this.FrmNuevoUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +267,6 @@ namespace LagartoStoreApp.PL
         private System.Windows.Forms.RadioButton rdoFemenino;
         private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label4;
     }
 }

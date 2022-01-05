@@ -29,6 +29,7 @@ namespace LagartoStoreApp.PL
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,11 +41,11 @@ namespace LagartoStoreApp.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnNuevoUsuario = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.grdConsulta = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnNuevoUsuario = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +55,11 @@ namespace LagartoStoreApp.PL
             this.cTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Fuente = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsulta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fuente)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -87,13 +90,50 @@ namespace LagartoStoreApp.PL
             this.panel1.Size = new System.Drawing.Size(978, 144);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(264, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Buscar:";
+            // 
+            // btnNuevoUsuario
+            // 
+            this.btnNuevoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnNuevoUsuario.Location = new System.Drawing.Point(18, 96);
+            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
+            this.btnNuevoUsuario.Size = new System.Drawing.Size(130, 30);
+            this.btnNuevoUsuario.TabIndex = 6;
+            this.btnNuevoUsuario.Text = "Nuevo usuario";
+            this.btnNuevoUsuario.UseVisualStyleBackColor = false;
+            this.btnNuevoUsuario.Click += new System.EventHandler(this.BtnNuevoUsuario_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
+            this.label4.Location = new System.Drawing.Point(11, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(375, 38);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "REGISTRO DE USUARIOS";
+            // 
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(281, 100);
+            this.txtBuscar.Location = new System.Drawing.Point(326, 100);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(199, 23);
             this.txtBuscar.TabIndex = 2;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // grdConsulta
             // 
@@ -151,42 +191,6 @@ namespace LagartoStoreApp.PL
             this.grdConsulta.Size = new System.Drawing.Size(978, 405);
             this.grdConsulta.TabIndex = 0;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
-            this.label4.Location = new System.Drawing.Point(11, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(375, 38);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "REGISTRO DE USUARIOS";
-            // 
-            // btnNuevoUsuario
-            // 
-            this.btnNuevoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoUsuario.Location = new System.Drawing.Point(18, 96);
-            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
-            this.btnNuevoUsuario.Size = new System.Drawing.Size(130, 30);
-            this.btnNuevoUsuario.TabIndex = 6;
-            this.btnNuevoUsuario.Text = "Nuevo usuario";
-            this.btnNuevoUsuario.UseVisualStyleBackColor = false;
-            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(219, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Buscar:";
-            // 
             // cId
             // 
             this.cId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -236,11 +240,11 @@ namespace LagartoStoreApp.PL
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.cCorreo.DefaultCellStyle = dataGridViewCellStyle4;
             this.cCorreo.HeaderText = "Correo";
-            this.cCorreo.MinimumWidth = 120;
+            this.cCorreo.MinimumWidth = 130;
             this.cCorreo.Name = "cCorreo";
             this.cCorreo.ReadOnly = true;
             this.cCorreo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cCorreo.Width = 120;
+            this.cCorreo.Width = 130;
             // 
             // cSexo
             // 
@@ -307,7 +311,7 @@ namespace LagartoStoreApp.PL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmUsuario";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -316,6 +320,7 @@ namespace LagartoStoreApp.PL
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsulta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fuente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,6 +343,7 @@ namespace LagartoStoreApp.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn cTelefono;
         private System.Windows.Forms.DataGridViewButtonColumn cEditar;
         private System.Windows.Forms.DataGridViewButtonColumn cEliminar;
+        private System.Windows.Forms.BindingSource Fuente;
     }
 }
 
