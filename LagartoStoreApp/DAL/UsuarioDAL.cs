@@ -59,13 +59,13 @@ namespace LagartoStoreApp.DAL
         {
             if (usuario.Id < 1) throw new Exception("El ID: " + usuario.Id + " es incorrecto.");
 
-            ConexionBD.SetData("UPDATE SET USUARIOS.NOMBRE = '" + usuario.Nombre + "', " +
-                                          "USUARIOS.APELLIDO = '" + usuario.Apellido + "', " +
-                                          "USUARIOS.DNI = " + usuario.Dni + ", " +
-                                          "USUARIOS.CORREO = '" + usuario.Correo + "', " +
-                                          "USUARIOS.SEXO = '" + usuario.Sexo + "', " +
-                                          "USUARIOS.TELEFONO = " + usuario.Telefono + ", " +
-                                    "WHERE USUARIOS.ID_USUARIO = " + usuario.Id, out int rows);
+            ConexionBD.SetData("UPDATE USUARIOS SET NOMBRE = '" + usuario.Nombre + "', " +
+                                                   "APELLIDO = '" + usuario.Apellido + "', " +
+                                                   "DNI = " + usuario.Dni + ", " +
+                                                   "CORREO = '" + usuario.Correo + "', " +
+                                                   "SEXO = '" + usuario.Sexo + "', " +
+                                                   "TELEFONO = " + usuario.Telefono +
+                                            " WHERE ID_USUARIO = " + usuario.Id, out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }

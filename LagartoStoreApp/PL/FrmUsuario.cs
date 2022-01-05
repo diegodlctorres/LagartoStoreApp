@@ -14,6 +14,7 @@ namespace LagartoStoreApp.PL
 {
     public partial class FrmUsuario : Form
     {
+        BindingList<Usuario> usuarios;
         public FrmUsuario()
         {
             InitializeComponent();
@@ -22,27 +23,67 @@ namespace LagartoStoreApp.PL
 
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
-            try
-            {
-                Fuente.DataSource = UsuarioDAL.GetUsuarios();
-                grdConsulta.DataSource = Fuente;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            BuscarUsuarios();
         }
 
         private void BtnNuevoUsuario_Click(object sender, EventArgs e)
         {
             FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario();
-            if(frmNuevoUsuario.ShowDialog() == DialogResult.OK)
-                grdConsulta.DataSource = UsuarioDAL.GetUsuarios();
+            if (frmNuevoUsuario.ShowDialog() == DialogResult.OK)
+                BuscarUsuarios();
+        }
+
+
+
+        private void GrdConsulta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == cEditar.Index || e.ColumnIndex == cEliminar.Index)
+            {
+                Usuario usuario = usuarios.Where(x => x.Id == Convert.ToInt32(grdConsulta.Rows[e.RowIndex].Cells[cId.Index].Value)).FirstOrDefault();
+
+                if (e.ColumnIndex == cEditar.Index)
+                {
+                    FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario(usuario);
+                    if (frmNuevoUsuario.ShowDialog() == DialogResult.OK)
+                        BuscarUsuarios();
+                }
+                else if (e.ColumnIndex == cEliminar.Index)
+                {
+                    try
+                    {
+                        DialogResult dialogResult = MessageBox.Show("¿Está seguro de eliminar el registro de usuario? \n" +
+                            "Usuario: " + usuario.ToString() + ".", "Registro de usuaios",
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                        if (dialogResult == DialogResult.OK)
+                        {
+                            UsuarioDAL.DeleteUsuario(usuario.Id);
+                            MessageBox.Show("Registro eliminado exitosamente.", "Registro de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            BuscarUsuarios();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    }
+                }
+            }
+        }
+        
+        private void BuscarUsuarios()
+        {
+            try
+            {
+                Fuente.DataSource = usuarios = new BindingList<Usuario>(UsuarioDAL.GetUsuarios());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Fuente.Filter = "NOMBRE LIKE '" + txtBuscar.Text + "'";
+            Fuente.DataSource = usuarios.Where(x => x.Nombre.Contains(txtBuscar.Text));
         }
     }
 }

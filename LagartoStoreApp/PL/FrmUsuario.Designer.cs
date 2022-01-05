@@ -74,7 +74,7 @@ namespace LagartoStoreApp.PL
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(984, 561);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1034, 561);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -87,7 +87,7 @@ namespace LagartoStoreApp.PL
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(978, 144);
+            this.panel1.Size = new System.Drawing.Size(1028, 144);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -144,6 +144,7 @@ namespace LagartoStoreApp.PL
             this.grdConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdConsulta.AutoGenerateColumns = false;
             this.grdConsulta.BackgroundColor = System.Drawing.Color.White;
             this.grdConsulta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdConsulta.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
@@ -166,6 +167,7 @@ namespace LagartoStoreApp.PL
             this.cTelefono,
             this.cEditar,
             this.cEliminar});
+            this.grdConsulta.DataSource = this.Fuente;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -186,10 +188,12 @@ namespace LagartoStoreApp.PL
             this.grdConsulta.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.grdConsulta.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.grdConsulta.RowTemplate.Height = 20;
+            this.grdConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdConsulta.ShowCellToolTips = false;
             this.grdConsulta.ShowEditingIcon = false;
-            this.grdConsulta.Size = new System.Drawing.Size(978, 405);
+            this.grdConsulta.Size = new System.Drawing.Size(1028, 405);
             this.grdConsulta.TabIndex = 0;
+            this.grdConsulta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdConsulta_CellClick);
             // 
             // cId
             // 
@@ -205,16 +209,17 @@ namespace LagartoStoreApp.PL
             // 
             // cNombre
             // 
-            this.cNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cNombre.DataPropertyName = "NOMBRE";
             this.cNombre.HeaderText = "Nombre";
-            this.cNombre.MinimumWidth = 100;
+            this.cNombre.MinimumWidth = 120;
             this.cNombre.Name = "cNombre";
             this.cNombre.ReadOnly = true;
+            this.cNombre.Width = 120;
             // 
             // cApellido
             // 
-            this.cApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cApellido.DataPropertyName = "APELLIDO";
             this.cApellido.HeaderText = "Apellido";
             this.cApellido.MinimumWidth = 100;
@@ -309,7 +314,7 @@ namespace LagartoStoreApp.PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1034, 561);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmUsuario";
@@ -334,6 +339,7 @@ namespace LagartoStoreApp.PL
         private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource Fuente;
         private System.Windows.Forms.DataGridViewTextBoxColumn cId;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cApellido;
@@ -343,7 +349,6 @@ namespace LagartoStoreApp.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn cTelefono;
         private System.Windows.Forms.DataGridViewButtonColumn cEditar;
         private System.Windows.Forms.DataGridViewButtonColumn cEliminar;
-        private System.Windows.Forms.BindingSource Fuente;
     }
 }
 

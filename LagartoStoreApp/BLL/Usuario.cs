@@ -17,7 +17,7 @@ namespace LagartoStoreApp.BLL
             Apellido = !string.IsNullOrEmpty(apellido) || apellido.Length > 0 ? 
                 apellido.ToUpper() : throw new ArgumentNullException(nameof(apellido));
             Correo = correo.Contains("@") && (correo.Contains(".edu") || correo.Contains(".com")) ?
-                correo : throw new ArgumentException("Correo incorrecto.");
+                correo.Replace(" ", string.Empty).ToLower() : throw new ArgumentException("Correo incorrecto.");
             Sexo = sexo == 'M' || sexo == 'F' ? 
                 sexo : throw new ArgumentException("Sexo incorrecto.");
             Telefono = telefono.ToString().Length == 9 && telefono > 900000000 ? 
@@ -56,12 +56,11 @@ namespace LagartoStoreApp.BLL
             get { return apellido; }
             set { apellido = value; }
         }
+        #endregion
 
         public override string ToString()
         {
             return base.ToString() + " " + Apellido;
         }
-        #endregion
-
     }
 }

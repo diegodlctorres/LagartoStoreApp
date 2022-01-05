@@ -44,7 +44,7 @@ namespace LagartoStoreApp.PL
             this.rdoFemenino = new System.Windows.Forms.RadioButton();
             this.btnNuevoUsuario = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             apellidoLabel = new System.Windows.Forms.Label();
             correoLabel = new System.Windows.Forms.Label();
             dniLabel = new System.Windows.Forms.Label();
@@ -215,16 +215,16 @@ namespace LagartoStoreApp.PL
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // label4
+            // lblTitulo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
-            this.label4.Location = new System.Drawing.Point(14, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(296, 25);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "REGISTRAR NUEVO USUARIO";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
+            this.lblTitulo.Location = new System.Drawing.Point(14, 29);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(296, 25);
+            this.lblTitulo.TabIndex = 14;
+            this.lblTitulo.Text = "REGISTRAR NUEVO USUARIO";
             // 
             // FrmNuevoUsuario
             // 
@@ -232,7 +232,7 @@ namespace LagartoStoreApp.PL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(325, 350);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNuevoUsuario);
             this.Controls.Add(this.rdoFemenino);
@@ -267,6 +267,6 @@ namespace LagartoStoreApp.PL
         private System.Windows.Forms.RadioButton rdoFemenino;
         private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }
