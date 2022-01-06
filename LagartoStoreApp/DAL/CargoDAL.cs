@@ -11,7 +11,7 @@ namespace LagartoStoreApp.DAL
         {
             if (cargo is null) throw new ArgumentNullException(nameof(cargo));
 
-            ConexionBD.SetData("INSERT INTO CATEGORIAS (NOMBRE, HORA_INICIO, HORA_FIN) " +
+            ConexionBD.SetData("INSERT INTO CARGOS (NOMBRE, SALARIO) " +
                 "VALUES ('" + cargo.Nombre + "', " + cargo.Salario +" )", out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
@@ -28,14 +28,14 @@ namespace LagartoStoreApp.DAL
 
         public List<Cargo> GetAll()
         {
-            DataTable dataTable = ConexionBD.GetData("SELECT * FROM TURNOS").Tables[0];
+            DataTable dataTable = ConexionBD.GetData("SELECT * FROM CARGOS").Tables[0];
 
             List<Cargo> cargos = new List<Cargo>();
             foreach (DataRow row in dataTable.Rows)
             {
-                cargos.Add(new Cargo(Convert.ToInt32(row["ID_TURNO"]),
+                cargos.Add(new Cargo(Convert.ToInt32(row["ID_CARGO"]),
                                      row["NOMBRE"].ToString(),
-                                     Convert.ToDecimal(row["PRECIO"])));
+                                     Convert.ToDecimal(row["SALARIO"])));
             }
 
             return cargos;
@@ -49,9 +49,9 @@ namespace LagartoStoreApp.DAL
 
             if (dataTable.Rows.Count == 0) throw new Exception("No se encontró el cargo de ID: " + id + ".");
 
-            return new Cargo(Convert.ToInt32(dataTable.Rows[0]["ID_TURNO"]),
+            return new Cargo(Convert.ToInt32(dataTable.Rows[0]["ID_CARGO"]),
                              dataTable.Rows[0]["NOMBRE"].ToString(),
-                             Convert.ToDecimal(dataTable.Rows[0]["PRECIO"]));
+                             Convert.ToDecimal(dataTable.Rows[0]["SALARIO"]));
         }
 
         public void Update(Cargo cargo)

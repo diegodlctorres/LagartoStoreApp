@@ -11,7 +11,7 @@ namespace LagartoStoreApp.DAL
         {
             if (turno is null) throw new ArgumentNullException(nameof(turno));
 
-            ConexionBD.SetData("INSERT INTO CATEGORIAS (NOMBRE, HORA_INICIO, HORA_FIN) " +
+            ConexionBD.SetData("INSERT INTO TURNOS (NOMBRE, HORA_INICIO, HORA_FIN) " +
                 "VALUES ('" + turno.Nombre + "', " +
                         "'" + string.Format("{0:HH:mm:ss}", turno.HoraInicio) + "', " +
                         "'" + string.Format("{0:HH:mm:ss}", turno.HoraFin) + "')", out int rows);
@@ -63,7 +63,7 @@ namespace LagartoStoreApp.DAL
             ConexionBD.SetData("UPDATE TURNOS SET NOMBRE = '" + turno.Nombre + "', " +
                                                  "HORA_INICIO = '" + string.Format("{0:HH:mm:ss}", turno.HoraInicio) + "', " +
                                                  "HORA_FIN = '" + string.Format("{0:HH:mm:ss}", turno.HoraFin) + "' " +
-                                           "WHERE ID_CATEGORIA = " + turno.Id, out int rows);
+                                           "WHERE ID_TURNO = " + turno.Id, out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }

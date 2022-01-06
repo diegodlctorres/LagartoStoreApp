@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>LagartoStoreApp</RootNamespace>
     <AssemblyName>LagartoStoreApp</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <LangVersion>8.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -28,6 +28,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -136,6 +137,12 @@
     <Compile Include="PL\FrmNuevaCategoria.Designer.cs">
       <DependentUpon>FrmNuevaCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FrmNuevoTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmNuevoTurno.Designer.cs">
+      <DependentUpon>FrmNuevoTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FrmNuevoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +154,12 @@
     </Compile>
     <Compile Include="PL\FrmCategoria.Designer.cs">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FrmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmTurno.Designer.cs">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FrmUsuario.cs">
       <SubType>Form</SubType>
@@ -167,11 +180,17 @@
     <EmbeddedResource Include="PL\FrmNuevaCategoria.resx">
       <DependentUpon>FrmNuevaCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\FrmNuevoTurno.resx">
+      <DependentUpon>FrmNuevoTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmNuevoUsuario.resx">
       <DependentUpon>FrmNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FrmTurno.resx">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -184,6 +203,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="DAL\UsuarioDAL.cs" />
     <None Include="packages.config" />

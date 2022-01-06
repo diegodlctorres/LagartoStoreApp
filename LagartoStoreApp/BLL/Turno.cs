@@ -5,13 +5,13 @@ namespace LagartoStoreApp.BLL
     public class Turno : Entidad
     {
         #region Atributos
-        private readonly DateTime horaInicio;
-        private readonly DateTime horaFin;
+        private DateTime horaInicio;
+        private DateTime horaFin;
 
         public Turno(int id, string nombre, DateTime horaInicio, DateTime horaFin) : base(id, nombre)
         {
-            this.horaInicio = horaInicio;
-            this.horaFin = horaFin;
+            HoraInicio = horaInicio;
+            HoraFin = horaFin;
         }
         #endregion
 
@@ -19,11 +19,13 @@ namespace LagartoStoreApp.BLL
         public DateTime HoraFin
         {
             get { return horaFin; }
+            set { horaFin = value; }
         }
 
         public DateTime HoraInicio
         {
             get { return horaInicio; }
+            set { horaInicio = value; }
         }
         #endregion
 

@@ -8,9 +8,11 @@ namespace LagartoStoreApp.BLL
         private decimal salario; 
         #endregion
 
+        //POSIBILIDAD DE AGREGAR UN ATRIBUTO QUE ESPECIFIQUE LA MODALIDAD DE EMPLEO
+        //PART TIME - FULL TIME
         public Cargo(int id, string nombre, decimal salario) : base(id, nombre)
         {
-            Salario = salario > 930 ? decimal.Round(salario, 2) : 
+            Salario = salario > 0 ? decimal.Round(salario, 2) : 
                 throw new ArgumentOutOfRangeException(nameof(salario), "Salario es menor al salario mínimo.");
         }
 

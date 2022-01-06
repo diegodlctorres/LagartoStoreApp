@@ -1,20 +1,13 @@
 ﻿using LagartoStoreApp.BLL;
-using LagartoStoreApp.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LagartoStoreApp.PL
 {
     public partial class FrmNuevoCargo : Form
     {
-        private readonly Categoria categoria;
+        private readonly Cargo cargo;
 
         public FrmNuevoCargo()
         {
@@ -24,16 +17,22 @@ namespace LagartoStoreApp.PL
         public FrmNuevoCargo(Cargo cargo)
         {
             InitializeComponent();
-            this.categoria = categoria;
+            this.cargo = cargo;
 
-            lblTitulo.Text = "ACTUALIZAR CATEGORÍA";
-            lblTitulo.Location = new Point(44, lblTitulo.Location.Y);
+            lblTitulo.Text = "ACTUALIZAR CARGO";
+            lblTitulo.Location = new Point(63, lblTitulo.Location.Y);
 
-            nombreTextBox.Text = categoria.Nombre;
+            nombreTextBox.Text = cargo.Nombre;
+            salarioTextBox.Text = cargo.Salario.ToString();
         }
 
         #region Eventos KeyPress
         private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13) BtnNuevo_Click(sender, e);
+        }
+
+        private void SalarioTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13) BtnNuevo_Click(sender, e);
         }
@@ -43,18 +42,19 @@ namespace LagartoStoreApp.PL
         {
             try
             {
-                if (categoria is null)
+                if (cargo is null)
                 {
-                    AppEngine.categoriaDAL.Create(new Categoria(1, nombreTextBox.Text));
+                    AppEngine.cargoDAL.Create(new Cargo(1, nombreTextBox.Text, Convert.ToDecimal(salarioTextBox.Text)));
 
-                    MessageBox.Show("Se agregó la categoría exitosamente.", "Registrar nueva categoría", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Se agregó el cargo exitosamente.", "Registrar nuevo cargo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
-                    categoria.Nombre = nombreTextBox.Text;
-                    AppEngine.categoriaDAL.Update(categoria);
+                    cargo.Nombre = nombreTextBox.Text;
+                    cargo.Salario = Convert.ToDecimal(salarioTextBox.Text);
+                    AppEngine.cargoDAL.Update(cargo);
 
-                    MessageBox.Show("Se actualizó la categoría exitosamente.", "Actualizar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Se actualizó el cargo exitosamente.", "Actualizar cargo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 BtnCancelar_Click(sender, e);
             }
