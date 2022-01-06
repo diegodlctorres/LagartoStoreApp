@@ -118,6 +118,18 @@
     <Compile Include="DAL\ICrud.cs" />
     <Compile Include="DAL\ProductoDAL.cs" />
     <Compile Include="DAL\TurnoDAL.cs" />
+    <Compile Include="PL\FrmCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmCargo.Designer.cs">
+      <DependentUpon>FrmCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FrmNuevoCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmNuevoCargo.Designer.cs">
+      <DependentUpon>FrmNuevoCargo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FrmNuevaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +158,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BLL\Usuario.cs" />
+    <EmbeddedResource Include="PL\FrmCargo.resx">
+      <DependentUpon>FrmCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FrmNuevoCargo.resx">
+      <DependentUpon>FrmNuevoCargo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmNuevaCategoria.resx">
       <DependentUpon>FrmNuevaCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +187,10 @@
     </Compile>
     <Compile Include="DAL\UsuarioDAL.cs" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\LagartoStoreApp.BLL.Cargo.datasource" />
+    <None Include="Properties\DataSources\LagartoStoreApp.BLL.Categoria.datasource" />
+    <None Include="Properties\DataSources\LagartoStoreApp.BLL.Producto.datasource" />
+    <None Include="Properties\DataSources\LagartoStoreApp.BLL.Turno.datasource" />
     <None Include="Properties\DataSources\LagartoStoreApp.Models.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
