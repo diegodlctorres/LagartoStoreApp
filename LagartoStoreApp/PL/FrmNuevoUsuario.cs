@@ -41,31 +41,31 @@ namespace LagartoStoreApp.PL
         #region Eventos KeyPress
         private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13) BtnNuevoUsuario_Click(sender, e);
+            if (e.KeyChar == 13) BtnNuevo_Click(sender, e);
         }
 
         private void ApellidoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13) BtnNuevoUsuario_Click(sender, e);
+            if (e.KeyChar == 13) BtnNuevo_Click(sender, e);
         }
 
         private void DniTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13) BtnNuevoUsuario_Click(sender, e);
+            if (e.KeyChar == 13) BtnNuevo_Click(sender, e);
         }
 
         private void CorreoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13) BtnNuevoUsuario_Click(sender, e);
+            if (e.KeyChar == 13) BtnNuevo_Click(sender, e);
         }
 
         private void TelefonoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13) BtnNuevoUsuario_Click(sender, e);
+            if (e.KeyChar == 13) BtnNuevo_Click(sender, e);
         } 
         #endregion
 
-        private void BtnNuevoUsuario_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             try
             {

@@ -42,7 +42,7 @@ namespace LagartoStoreApp.PL
             this.telefonoTextBox = new System.Windows.Forms.TextBox();
             this.rdoMasculino = new System.Windows.Forms.RadioButton();
             this.rdoFemenino = new System.Windows.Forms.RadioButton();
-            this.btnNuevoUsuario = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             apellidoLabel = new System.Windows.Forms.Label();
@@ -187,19 +187,19 @@ namespace LagartoStoreApp.PL
             this.rdoFemenino.Text = "Femenino";
             this.rdoFemenino.UseVisualStyleBackColor = true;
             // 
-            // btnNuevoUsuario
+            // btnNuevo
             // 
-            this.btnNuevoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
-            this.btnNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoUsuario.Location = new System.Drawing.Point(57, 291);
-            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
-            this.btnNuevoUsuario.Size = new System.Drawing.Size(102, 30);
-            this.btnNuevoUsuario.TabIndex = 7;
-            this.btnNuevoUsuario.Text = "Aceptar";
-            this.btnNuevoUsuario.UseVisualStyleBackColor = false;
-            this.btnNuevoUsuario.Click += new System.EventHandler(this.BtnNuevoUsuario_Click);
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Location = new System.Drawing.Point(57, 291);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(102, 30);
+            this.btnNuevo.TabIndex = 7;
+            this.btnNuevo.Text = "Aceptar";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // btnCancelar
             // 
@@ -234,7 +234,7 @@ namespace LagartoStoreApp.PL
             this.ClientSize = new System.Drawing.Size(325, 350);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnNuevoUsuario);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.rdoFemenino);
             this.Controls.Add(this.rdoMasculino);
             this.Controls.Add(apellidoLabel);
@@ -265,7 +265,7 @@ namespace LagartoStoreApp.PL
         private System.Windows.Forms.TextBox telefonoTextBox;
         private System.Windows.Forms.RadioButton rdoMasculino;
         private System.Windows.Forms.RadioButton rdoFemenino;
-        private System.Windows.Forms.Button btnNuevoUsuario;
+        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblTitulo;
     }

@@ -55,7 +55,7 @@ namespace LagartoStoreApp.DAL
                                                          "ON CATEGORIAS.ID_CATEGORIA = PRODUCTOS.ID_CATEGORIA " +
                                                       "WHERE ID_PRODUCTO = " + id).Tables[0];
 
-            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró la categoría de ID: " + id + ".");
+            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró el producto de ID: " + id + ".");
 
             return new Producto(Convert.ToInt32(dataTable.Rows[0]["ID_PRODUCTO"]),
                                                 dataTable.Rows[0]["NOMBRE"].ToString(),

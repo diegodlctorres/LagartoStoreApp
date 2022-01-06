@@ -1,13 +1,65 @@
-﻿using System;
+﻿using LagartoStoreApp.BLL;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace LagartoStoreApp.DAL
 {
-    public sealed class CargoDAL
+    public sealed class CargoDAL : ICrud<Cargo>
     {
+        public void Create(Cargo cargo)
+        {
+            if (cargo is null) throw new ArgumentNullException(nameof(cargo));
 
+            ConexionBD.SetData("INSERT INTO CATEGORIAS (NOMBRE, HORA_INICIO, HORA_FIN) " +
+                "VALUES ('" + cargo.Nombre + "', " + cargo.Salario +" )", out int rows);
+
+            if (rows == 0) throw new Exception("No se actualizó ningún registro.");
+        }
+
+        public void Delete(int id)
+        {
+            if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
+
+            ConexionBD.SetData("DELETE FROM CARGOS WHERE ID_CARGO = " + id, out int rows);
+
+            if (rows == 0) throw new Exception("No se eliminó ningún registro.");
+        }
+
+        public List<Cargo> GetAll()
+        {
+            DataTable dataTable = ConexionBD.GetData("SELECT * FROM TURNOS").Tables[0];
+
+            List<Cargo> cargos = new List<Cargo>();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                cargos.Add(new Cargo(Convert.ToInt32(row["ID_TURNO"]),
+                                     row["NOMBRE"].ToString(),
+                                     Convert.ToDecimal(row["PRECIO"])));
+            }
+
+            return cargos;
+        }
+
+        public Cargo GetByID(int id)
+        {
+            if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
+
+            DataTable dataTable = ConexionBD.GetData("SELECT * FROM CARGOS WHERE ID_CARGO = " + id).Tables[0];
+
+            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró el cargo de ID: " + id + ".");
+
+            return new Cargo(Convert.ToInt32(dataTable.Rows[0]["ID_TURNO"]),
+                             dataTable.Rows[0]["NOMBRE"].ToString(),
+                             Convert.ToDecimal(dataTable.Rows[0]["PRECIO"]));
+        }
+
+        public void Update(Cargo cargo)
+        {
+            ConexionBD.SetData("UPDATE CARGOS SET NOMBRE = '" + cargo.Nombre + "', " +
+                "SALARIO = " + cargo.Salario + " WHERE ID_CARGO = " + cargo.Id, out int rows);
+
+            if (rows == 0) throw new Exception("No se actualizó ningún registro.");
+        }
     }
 }

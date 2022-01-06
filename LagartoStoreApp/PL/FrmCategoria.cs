@@ -7,49 +7,42 @@ using System.Windows.Forms;
 
 namespace LagartoStoreApp.PL
 {
-    public partial class FrmUsuario : Form
+    public partial class FrmCategoria : Form
     {
-        BindingList<Usuario> usuarios;
-        public FrmUsuario()
+        BindingList<Categoria> categorias;
+        public FrmCategoria()
         {
             InitializeComponent();
             grdConsulta.AutoGenerateColumns = false;
         }
 
-        private void FrmUsuario_Load(object sender, EventArgs e)
+        private void FrmCategoria_Load(object sender, EventArgs e)
         {
             Buscar();
-        }
-
-        private void BtnNuevo_Click(object sender, EventArgs e)
-        {
-            FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario();
-            if (frmNuevoUsuario.ShowDialog() == DialogResult.OK)
-                Buscar();
         }
 
         private void GrdConsulta_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == cEditar.Index || e.ColumnIndex == cEliminar.Index)
             {
-                Usuario usuario = usuarios.Where(x => x.Id == Convert.ToInt32(grdConsulta.Rows[e.RowIndex].Cells[cId.Index].Value)).FirstOrDefault();
+                Categoria categoria = categorias.Where(x => x.Id == Convert.ToInt32(grdConsulta.Rows[e.RowIndex].Cells[cId.Index].Value)).FirstOrDefault();
 
                 if (e.ColumnIndex == cEditar.Index)
                 {
-                    FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario(usuario);
-                    if (frmNuevoUsuario.ShowDialog() == DialogResult.OK)
+                    FrmNuevaCategoria frmNuevaCategoria = new FrmNuevaCategoria(categoria);
+                    if (frmNuevaCategoria.ShowDialog() == DialogResult.OK)
                         Buscar();
                 }
                 else if (e.ColumnIndex == cEliminar.Index)
                 {
                     try
                     {
-                        DialogResult dialogResult = MessageBox.Show("¿Está seguro de eliminar el registro de usuario? \n" +
-                            "Usuario: " + usuario.ToString() + ".", "Registro de usuaios",
+                        DialogResult dialogResult = MessageBox.Show("¿Está seguro de eliminar el registro de categoría? \n" +
+                            "Categoría: " + categoria.ToString() + ".", "Registro de categorías",
                             MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                         if (dialogResult == DialogResult.OK)
                         {
-                            AppEngine.usuarioDAL.Delete(usuario.Id);
+                            AppEngine.categoriaDAL.Delete(categoria.Id);
                             MessageBox.Show("Registro eliminado exitosamente.", "Registro de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             Buscar();
                         }
@@ -67,7 +60,7 @@ namespace LagartoStoreApp.PL
             try
             {
                 txtBuscar.Text = "";
-                Fuente.DataSource = usuarios = new BindingList<Usuario>(AppEngine.usuarioDAL.GetAll());
+                Fuente.DataSource = categorias = new BindingList<Categoria>(AppEngine.categoriaDAL.GetAll());
             }
             catch (Exception ex)
             {
@@ -77,7 +70,14 @@ namespace LagartoStoreApp.PL
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Fuente.DataSource = usuarios.Where(x => x.Nombre.Contains(txtBuscar.Text));
+            Fuente.DataSource = categorias.Where(x => x.Nombre.Contains(txtBuscar.Text));
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmNuevaCategoria frmNuevaCategoria = new FrmNuevaCategoria();
+            if (frmNuevaCategoria.ShowDialog() == DialogResult.OK)
+                Buscar();
         }
     }
 }
