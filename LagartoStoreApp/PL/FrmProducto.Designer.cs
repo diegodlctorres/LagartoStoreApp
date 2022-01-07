@@ -1,7 +1,7 @@
 ﻿
 namespace LagartoStoreApp.PL
 {
-    partial class FrmUsuario
+    partial class FrmProducto
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -31,14 +31,11 @@ namespace LagartoStoreApp.PL
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,11 +46,8 @@ namespace LagartoStoreApp.PL
             this.Fuente = new System.Windows.Forms.BindingSource(this.components);
             this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
@@ -74,7 +68,7 @@ namespace LagartoStoreApp.PL
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 561);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(734, 561);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -87,7 +81,7 @@ namespace LagartoStoreApp.PL
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(849, 144);
+            this.panel1.Size = new System.Drawing.Size(728, 144);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -107,11 +101,11 @@ namespace LagartoStoreApp.PL
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(502, 95);
+            this.btnNuevo.Location = new System.Drawing.Point(413, 95);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 30);
             this.btnNuevo.TabIndex = 6;
-            this.btnNuevo.Text = "Nuevo usuario";
+            this.btnNuevo.Text = "Nuevo producto";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
@@ -120,11 +114,11 @@ namespace LagartoStoreApp.PL
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
-            this.label4.Location = new System.Drawing.Point(11, 15);
+            this.label4.Location = new System.Drawing.Point(88, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(375, 38);
+            this.label4.Size = new System.Drawing.Size(410, 38);
             this.label4.TabIndex = 5;
-            this.label4.Text = "REGISTRO DE USUARIOS";
+            this.label4.Text = "REGISTRO DE PRODUCTOS";
             // 
             // txtBuscar
             // 
@@ -160,22 +154,19 @@ namespace LagartoStoreApp.PL
             this.grdConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cId,
             this.cNombre,
-            this.cApellido,
-            this.cDNI,
-            this.cCorreo,
-            this.cSexo,
-            this.cTelefono,
+            this.cPrecio,
+            this.cCategoria,
             this.cEditar,
             this.cEliminar});
             this.grdConsulta.DataSource = this.Fuente;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdConsulta.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdConsulta.DefaultCellStyle = dataGridViewCellStyle6;
             this.grdConsulta.EnableHeadersVisualStyles = false;
             this.grdConsulta.GridColor = System.Drawing.Color.LightGray;
             this.grdConsulta.Location = new System.Drawing.Point(3, 153);
@@ -191,7 +182,7 @@ namespace LagartoStoreApp.PL
             this.grdConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdConsulta.ShowCellToolTips = false;
             this.grdConsulta.ShowEditingIcon = false;
-            this.grdConsulta.Size = new System.Drawing.Size(849, 405);
+            this.grdConsulta.Size = new System.Drawing.Size(728, 405);
             this.grdConsulta.TabIndex = 0;
             this.grdConsulta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdConsulta_CellClick);
             // 
@@ -217,75 +208,40 @@ namespace LagartoStoreApp.PL
             this.cNombre.ReadOnly = true;
             this.cNombre.Width = 120;
             // 
-            // cApellido
+            // cPrecio
             // 
-            this.cApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cApellido.DataPropertyName = "APELLIDO";
-            this.cApellido.HeaderText = "Apellido";
-            this.cApellido.MinimumWidth = 100;
-            this.cApellido.Name = "cApellido";
-            this.cApellido.ReadOnly = true;
+            this.cPrecio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cPrecio.DataPropertyName = "PRECIO";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.cPrecio.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cPrecio.HeaderText = "Precio";
+            this.cPrecio.MinimumWidth = 80;
+            this.cPrecio.Name = "cPrecio";
+            this.cPrecio.ReadOnly = true;
+            this.cPrecio.Width = 80;
             // 
-            // cDNI
+            // cCategoria
             // 
-            this.cDNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cDNI.DataPropertyName = "DNI";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cDNI.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cDNI.HeaderText = "DNI";
-            this.cDNI.MinimumWidth = 85;
-            this.cDNI.Name = "cDNI";
-            this.cDNI.ReadOnly = true;
-            this.cDNI.Width = 85;
-            // 
-            // cCorreo
-            // 
-            this.cCorreo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cCorreo.DataPropertyName = "CORREO";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.cCorreo.DefaultCellStyle = dataGridViewCellStyle4;
-            this.cCorreo.HeaderText = "Correo";
-            this.cCorreo.MinimumWidth = 130;
-            this.cCorreo.Name = "cCorreo";
-            this.cCorreo.ReadOnly = true;
-            this.cCorreo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cCorreo.Width = 130;
-            // 
-            // cSexo
-            // 
-            this.cSexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cSexo.DataPropertyName = "SEXO";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cSexo.DefaultCellStyle = dataGridViewCellStyle5;
-            this.cSexo.HeaderText = "Sexo";
-            this.cSexo.MinimumWidth = 65;
-            this.cSexo.Name = "cSexo";
-            this.cSexo.ReadOnly = true;
-            this.cSexo.Width = 65;
-            // 
-            // cTelefono
-            // 
-            this.cTelefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cTelefono.DataPropertyName = "TELEFONO";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cTelefono.DefaultCellStyle = dataGridViewCellStyle6;
-            this.cTelefono.HeaderText = "Teléfono";
-            this.cTelefono.MinimumWidth = 85;
-            this.cTelefono.Name = "cTelefono";
-            this.cTelefono.ReadOnly = true;
-            this.cTelefono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cTelefono.Width = 85;
+            this.cCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cCategoria.DataPropertyName = "CATEGORIA";
+            this.cCategoria.HeaderText = "Categoría";
+            this.cCategoria.MinimumWidth = 215;
+            this.cCategoria.Name = "cCategoria";
+            this.cCategoria.ReadOnly = true;
+            this.cCategoria.Width = 215;
             // 
             // cEditar
             // 
             this.cEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(106)))), ((int)(((byte)(143)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(106)))), ((int)(((byte)(143)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.cEditar.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(106)))), ((int)(((byte)(143)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(106)))), ((int)(((byte)(143)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.cEditar.DefaultCellStyle = dataGridViewCellStyle4;
             this.cEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cEditar.HeaderText = "";
             this.cEditar.MinimumWidth = 100;
@@ -296,13 +252,13 @@ namespace LagartoStoreApp.PL
             // cEliminar
             // 
             this.cEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.cEliminar.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.cEliminar.DefaultCellStyle = dataGridViewCellStyle5;
             this.cEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cEliminar.HeaderText = "";
             this.cEliminar.MinimumWidth = 100;
@@ -310,17 +266,17 @@ namespace LagartoStoreApp.PL
             this.cEliminar.Text = "Borrar";
             this.cEliminar.UseColumnTextForButtonValue = true;
             // 
-            // FrmUsuario
+            // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 561);
+            this.ClientSize = new System.Drawing.Size(734, 561);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "FrmUsuario";
+            this.Name = "FrmProducto";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.FrmUsuario_Load);
+            this.Load += new System.EventHandler(this.FrmProducto_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -342,11 +298,8 @@ namespace LagartoStoreApp.PL
         private System.Windows.Forms.BindingSource Fuente;
         private System.Windows.Forms.DataGridViewTextBoxColumn cId;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cDNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cSexo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCategoria;
         private System.Windows.Forms.DataGridViewButtonColumn cEditar;
         private System.Windows.Forms.DataGridViewButtonColumn cEliminar;
     }

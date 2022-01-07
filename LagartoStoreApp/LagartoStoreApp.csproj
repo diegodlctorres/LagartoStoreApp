@@ -143,6 +143,12 @@
     <Compile Include="PL\FrmNuevoTurno.Designer.cs">
       <DependentUpon>FrmNuevoTurno.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FrmNuevoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmNuevoProducto.Designer.cs">
+      <DependentUpon>FrmNuevoProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FrmNuevoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,12 @@
     </Compile>
     <Compile Include="PL\FrmTurno.Designer.cs">
       <DependentUpon>FrmTurno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FrmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmProducto.Designer.cs">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FrmUsuario.cs">
       <SubType>Form</SubType>
@@ -183,6 +195,9 @@
     <EmbeddedResource Include="PL\FrmNuevoTurno.resx">
       <DependentUpon>FrmNuevoTurno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\FrmNuevoProducto.resx">
+      <DependentUpon>FrmNuevoProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmNuevoUsuario.resx">
       <DependentUpon>FrmNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmTurno.resx">
       <DependentUpon>FrmTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FrmProducto.resx">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>

@@ -6,5 +6,28 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="Producto" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <Children>
+      <GenericObjectDataSource DisplayName="Categoria" Version="1.0">
+         <TypeInfo>LagartoStoreApp.BLL.Categoria, LagartoStoreApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="Nombre">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="ComboBox" Type="System.Windows.Forms.ComboBox" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="Id">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="[Ninguno]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+   </Children>
    <TypeInfo>LagartoStoreApp.BLL.Producto, LagartoStoreApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

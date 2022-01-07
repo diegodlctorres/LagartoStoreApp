@@ -1,10 +1,7 @@
-﻿using System;
+﻿using LagartoStoreApp.BLL;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LagartoStoreApp.BLL;
 
 namespace LagartoStoreApp.DAL
 {
