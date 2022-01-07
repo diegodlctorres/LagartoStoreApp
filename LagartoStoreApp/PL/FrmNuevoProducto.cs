@@ -60,7 +60,7 @@ namespace LagartoStoreApp.PL
                         Convert.ToDecimal(precioTextBox.Text),
                         categoriaComboBox.SelectedItem as Categoria));
 
-                    MessageBox.Show("Se agregó al usuario exitosamente.", "Registrar nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Se agregó al producto exitosamente.", "Registrar nuevo producto", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
