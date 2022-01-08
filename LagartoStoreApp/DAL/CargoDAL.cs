@@ -61,5 +61,6 @@ namespace LagartoStoreApp.DAL
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }
+        
     }
 }

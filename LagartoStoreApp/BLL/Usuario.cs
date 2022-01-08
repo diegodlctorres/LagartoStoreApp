@@ -4,12 +4,12 @@ namespace LagartoStoreApp.BLL
 {
     public class Usuario : Entidad
     {
-        #region Atributos
-        private int telefono;
-        private char sexo;
-        private string correo;
-        private int dni;
-        private string apellido; 
+        #region Propiedades
+        public char Sexo { get; set; }
+        public int Dni { get; set; }
+        public string Apellido { get; set; }
+        public int Telefono { get; set; }
+        public string Correo { get; set; }
         #endregion
 
         public Usuario(int id, string nombre, string apellido, int telefono, char sexo, string correo, int dni) : base(id, nombre)
@@ -25,38 +25,6 @@ namespace LagartoStoreApp.BLL
             Dni = dni.ToString().Length == 8 && dni > 10000000 ? 
                 dni : throw new ArgumentException("DNI incorrecto.");
         }
-
-        #region Propiedades
-        public int Telefono
-        {
-            get { return telefono; }
-            set { telefono = value; }
-        }
-
-        public char Sexo
-        {
-            get { return sexo; }
-            set { sexo = value; }
-        }
-
-        public string Correo
-        {
-            get { return correo; }
-            set { correo = value; }
-        }
-
-        public int Dni
-        {
-            get { return dni; }
-            set { dni = value; }
-        }
-
-        public string Apellido
-        {
-            get { return apellido; }
-            set { apellido = value; }
-        }
-        #endregion
 
         public override string ToString()
         {

@@ -4,30 +4,16 @@ namespace LagartoStoreApp.BLL
 {
     public class Turno : Entidad
     {
-        #region Atributos
-        private DateTime horaInicio;
-        private DateTime horaFin;
+        #region Propiedades
+        public DateTime HoraInicio { get; set; }
+        public DateTime HoraFin { get; set; }
+        #endregion
 
         public Turno(int id, string nombre, DateTime horaInicio, DateTime horaFin) : base(id, nombre)
         {
             HoraInicio = horaInicio;
             HoraFin = horaFin;
         }
-        #endregion
-
-        #region Propiedades
-        public DateTime HoraFin
-        {
-            get { return horaFin; }
-            set { horaFin = value; }
-        }
-
-        public DateTime HoraInicio
-        {
-            get { return horaInicio; }
-            set { horaInicio = value; }
-        }
-        #endregion
 
         public override string ToString()
         {

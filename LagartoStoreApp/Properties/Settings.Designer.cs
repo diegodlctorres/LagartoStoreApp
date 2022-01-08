@@ -22,5 +22,41 @@ namespace LagartoStoreApp.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Usuario {
+            get {
+                return ((string)(this["Usuario"]));
+            }
+            set {
+                this["Usuario"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Contraseña {
+            get {
+                return ((string)(this["Contraseña"]));
+            }
+            set {
+                this["Contraseña"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Recuerdame {
+            get {
+                return ((bool)(this["Recuerdame"]));
+            }
+            set {
+                this["Recuerdame"] = value;
+            }
+        }
     }
 }

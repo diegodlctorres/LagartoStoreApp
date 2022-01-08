@@ -108,10 +108,12 @@
   <ItemGroup>
     <Compile Include="AppEngine.cs" />
     <Compile Include="BLL\Categoria.cs" />
+    <Compile Include="BLL\Cuenta.cs" />
     <Compile Include="BLL\Producto.cs" />
     <Compile Include="DAL\CargoDAL.cs" />
     <Compile Include="DAL\CategoriaDAL.cs" />
     <Compile Include="DAL\ConexionBD.cs" />
+    <Compile Include="DAL\CuentaDAL.cs" />
     <Compile Include="DAL\DBParametro.cs" />
     <Compile Include="BLL\Cargo.cs" />
     <Compile Include="BLL\Colaborador.cs" />
@@ -124,6 +126,12 @@
     </Compile>
     <Compile Include="PL\FrmCargo.Designer.cs">
       <DependentUpon>FrmCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FrmNuevoCargo.cs">
       <SubType>Form</SubType>
@@ -185,6 +193,9 @@
     <Compile Include="BLL\Usuario.cs" />
     <EmbeddedResource Include="PL\FrmCargo.resx">
       <DependentUpon>FrmCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmNuevoCargo.resx">
       <DependentUpon>FrmNuevoCargo.cs</DependentUpon>
@@ -254,6 +265,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\USER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VER.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
