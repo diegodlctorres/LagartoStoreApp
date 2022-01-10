@@ -30,11 +30,24 @@ namespace LagartoStoreApp.PL
 
         private void BtnAcceder_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Usuario = recuerdameCheckBox.Checked ? txtUsuario.Text : "";
-            Properties.Settings.Default.Contraseña = recuerdameCheckBox.Checked ? txtContraseña.Text : "";
-            Properties.Settings.Default.Recuerdame = recuerdameCheckBox.Checked;
+            try
+            {
+                Properties.Settings.Default.Usuario = recuerdameCheckBox.Checked ? txtUsuario.Text : "";
+                Properties.Settings.Default.Contraseña = recuerdameCheckBox.Checked ? txtContraseña.Text : "";
+                Properties.Settings.Default.Recuerdame = recuerdameCheckBox.Checked;
 
-            Properties.Settings.Default.Save();
+                Properties.Settings.Default.Save();
+
+                AppEngine.cuenta = AppEngine.cuentaDAL.GetByUsuario(txtUsuario.Text, txtContraseña.Text);
+
+                FrmMenuPrincipal frmMenuPrincipal = new FrmMenuPrincipal(this);
+                frmMenuPrincipal.Show();
+                Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         #region Eventos de los textboxes

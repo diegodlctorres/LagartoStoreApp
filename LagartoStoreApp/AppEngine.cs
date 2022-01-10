@@ -1,9 +1,12 @@
-﻿using LagartoStoreApp.DAL;
+﻿using LagartoStoreApp.BLL;
+using LagartoStoreApp.DAL;
 
 namespace LagartoStoreApp
 {
     public abstract class AppEngine
     {
+        public static Cuenta cuenta;      
+
         public static readonly UsuarioDAL usuarioDAL = new UsuarioDAL();
         public static readonly CategoriaDAL categoriaDAL = new CategoriaDAL();
         public static readonly TurnoDAL turnoDAL = new TurnoDAL();
