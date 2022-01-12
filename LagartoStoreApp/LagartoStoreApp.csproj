@@ -50,15 +50,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>lagartoICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf, Version=3.19.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.19.1\lib\net45\Google.Protobuf.dll</HintPath>
+    <Reference Include="Google.Protobuf, Version=3.19.3.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.19.3\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.2.16.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.2.16\lib\net46\K4os.Compression.LZ4.dll</HintPath>
@@ -112,10 +111,15 @@
   <ItemGroup>
     <Compile Include="AppEngine.cs" />
     <Compile Include="BLL\Categoria.cs" />
+    <Compile Include="BLL\Cliente.cs" />
+    <Compile Include="BLL\Compra.cs" />
     <Compile Include="BLL\Cuenta.cs" />
     <Compile Include="BLL\Producto.cs" />
     <Compile Include="DAL\CargoDAL.cs" />
     <Compile Include="DAL\CategoriaDAL.cs" />
+    <Compile Include="DAL\ClienteDAL.cs" />
+    <Compile Include="DAL\ColaboradorDAL.cs" />
+    <Compile Include="DAL\CompraDAL.cs" />
     <Compile Include="DAL\ConexionBD.cs" />
     <Compile Include="DAL\CuentaDAL.cs" />
     <Compile Include="DAL\DBParametro.cs" />
@@ -130,6 +134,12 @@
     </Compile>
     <Compile Include="PL\FrmCargo.Designer.cs">
       <DependentUpon>FrmCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FrmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmCompras.Designer.cs">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -179,12 +189,6 @@
     <Compile Include="PL\FrmCategoria.Designer.cs">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FrmTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmTest.Designer.cs">
-      <DependentUpon>FrmTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="PL\FrmTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,12 +208,6 @@
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="BLL\Turno.cs" />
-    <Compile Include="PL\MDIParent1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\MDIParent1.Designer.cs">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BLL\Usuario.cs" />
@@ -240,9 +238,6 @@
     <EmbeddedResource Include="PL\FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmTest.resx">
-      <DependentUpon>FrmTest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmTurno.resx">
       <DependentUpon>FrmTurno.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,9 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\MDIParent1.resx">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

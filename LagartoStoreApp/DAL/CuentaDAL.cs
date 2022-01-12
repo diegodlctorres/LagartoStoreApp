@@ -11,8 +11,11 @@ namespace LagartoStoreApp.DAL
         {
             if (cuenta is null) throw new ArgumentNullException(nameof(cuenta));
 
+            AppEngine.usuarioDAL.GetByID(cuenta.Usuario.Id);
+
             ConexionBD.SetData("INSERT INTO CUENTAS (ID_USUARIO, CONTRASEÑA, ID_USUARIO_REGISTRO) " +
-                "VALUES (" + cuenta.Usuario.Id + ", '" + cuenta.Contraseña + "', " + AppEngine.cuenta.Usuario.Id + ")", out int rows); 
+                               "VALUES (" + cuenta.Usuario.Id + ", '" + cuenta.Contraseña + "', " + AppEngine.cuenta.Usuario.Id + ")", 
+                               out int rows); 
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }
@@ -28,13 +31,21 @@ namespace LagartoStoreApp.DAL
 
         public List<Cuenta> GetAll()
         {
-            DataTable dataTable = ConexionBD.GetData("SELECT * FROM CUENTAS").Tables[0];
+            List<DBParametro> parametros = new List<DBParametro>();
+            parametros.Add(new DBParametro("P_ID_CUENTA", 0));
+            DataTable dataTable = ConexionBD.GetData("GET_CUENTAS", parametros).Tables[0];
 
             List<Cuenta> cuentas = new List<Cuenta>();
             foreach (DataRow row in dataTable.Rows)
             {
                 cuentas.Add(new Cuenta(Convert.ToInt32(row["ID_CUENTA"]),
-                                       AppEngine.usuarioDAL.GetByID(Convert.ToInt32(row["ID_USUARIO"])),
+                                       new Usuario(Convert.ToInt32(row["ID_USUARIO"]),
+                                                   row["NOMBRE"].ToString(),
+                                                   row["APELLIDO"].ToString(),
+                                                   Convert.ToInt32(row["TELEFONO"]),
+                                                   Convert.ToChar(row["SEXO"]),
+                                                   row["CORREO"].ToString(),
+                                                   Convert.ToInt32(row["DNI"])),
                                        row["USUARIO"].ToString(),
                                        row["CONTRASEÑA"].ToString(),
                                        Convert.ToBoolean(row["FLG_ACTIVO"])));
@@ -47,12 +58,20 @@ namespace LagartoStoreApp.DAL
         {
             if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
 
-            DataTable dataTable = ConexionBD.GetData("SELECT * FROM CUENTAS WHERE ID_CUENTA = " + id).Tables[0];
+            List<DBParametro> parametros = new List<DBParametro>();
+            parametros.Add(new DBParametro("P_ID_CUENTA", id));
+            DataTable dataTable = ConexionBD.GetData("GET_CUENTAS", parametros).Tables[0];
 
             if (dataTable.Rows.Count == 0) throw new Exception("No se encontró la cuenta de ID: " + id + ".");
 
             return new Cuenta(Convert.ToInt32(dataTable.Rows[0]["ID_CUENTA"]),
-                              AppEngine.usuarioDAL.GetByID(Convert.ToInt32(dataTable.Rows[0]["ID_USUARIO"])),
+                              new Usuario(Convert.ToInt32(dataTable.Rows[0]["ID_USUARIO"]),
+                                          dataTable.Rows[0]["NOMBRE"].ToString(),
+                                          dataTable.Rows[0]["APELLIDO"].ToString(),
+                                          Convert.ToInt32(dataTable.Rows[0]["TELEFONO"]),
+                                          Convert.ToChar(dataTable.Rows[0]["SEXO"]),
+                                          dataTable.Rows[0]["CORREO"].ToString(),
+                                          Convert.ToInt32(dataTable.Rows[0]["DNI"])),
                               dataTable.Rows[0]["USUARIO"].ToString(),
                               dataTable.Rows[0]["CONTRASEÑA"].ToString(),
                               Convert.ToBoolean(dataTable.Rows[0]["FLG_ACTIVO"]));
@@ -61,7 +80,8 @@ namespace LagartoStoreApp.DAL
         public void Update(Cuenta cuenta)
         {
             ConexionBD.SetData("UPDATE CUENTAS SET CONTRASEÑA = '" + cuenta.Contraseña + "', " +
-                "FLG_ACTIVO = " + Convert.ToInt32(cuenta.IsActivo) + " WHERE ID_CUENTA = " + cuenta.Id, out int rows);
+                                                  "FLG_ACTIVO = " + Convert.ToInt32(cuenta.IsActivo) +
+                                           " WHERE ID_CUENTA = " + cuenta.Id, out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }

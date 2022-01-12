@@ -12,8 +12,8 @@ namespace LagartoStoreApp.DAL
             if (producto is null) throw new ArgumentNullException(nameof(producto));
 
             ConexionBD.SetData("INSERT INTO PRODUCTOS (NOMBRE, PRECIO, ID_CATEGORIA) " +
-                "VALUES ('" + producto.Nombre + "', " + producto.Precio + ", " + producto.Categoria.Id + ")", 
-                out int rows);
+                               "VALUES ('" + producto.Nombre + "', " + producto.Precio + ", " + producto.Categoria.Id + ")", 
+                               out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }
@@ -29,9 +29,9 @@ namespace LagartoStoreApp.DAL
 
         public List<Producto> GetAll()
         {
-            DataTable dataTable = ConexionBD.GetData("SELECT PRODUCTOS.*, CATEGORIAS.NOMBRE AS NOMBRE_CATEGORIA " +
-                                                       "FROM PRODUCTOS INNER JOIN CATEGORIAS " +
-                                                         "ON CATEGORIAS.ID_CATEGORIA = PRODUCTOS.ID_CATEGORIA").Tables[0];
+            List<DBParametro> parametros = new List<DBParametro>();
+            parametros.Add(new DBParametro("P_ID_PRODUCTO", 0));
+            DataTable dataTable = ConexionBD.GetData("GET_PRODUCTOS", parametros).Tables[0];
 
             List<Producto> productos = new List<Producto>();
             foreach (DataRow row in dataTable.Rows)
@@ -39,7 +39,7 @@ namespace LagartoStoreApp.DAL
                 productos.Add(new Producto(Convert.ToInt32(row["ID_PRODUCTO"]), 
                                            row["NOMBRE"].ToString(),
                                            Convert.ToDecimal(row["PRECIO"]), 
-                                           new Categoria(Convert.ToInt32(row["ID_CATEGORIA"]), 
+                                           new Categoria(Convert.ToInt32(row["ID_CATEGORIA"]),
                                                          row["NOMBRE_CATEGORIA"].ToString())));
             }
 
@@ -50,18 +50,17 @@ namespace LagartoStoreApp.DAL
         {
             if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
 
-            DataTable dataTable = ConexionBD.GetData("SELECT PRODUCTOS.*, CATEGORIAS.NOMBRE AS NOMBRE_CATEGORIA " +
-                                                       "FROM PRODUCTOS INNER JOIN CATEGORIAS " +
-                                                         "ON CATEGORIAS.ID_CATEGORIA = PRODUCTOS.ID_CATEGORIA " +
-                                                      "WHERE ID_PRODUCTO = " + id).Tables[0];
+            List<DBParametro> parametros = new List<DBParametro>();
+            parametros.Add(new DBParametro("P_ID_PRODUCTO", id));
+            DataTable dataTable = ConexionBD.GetData("GET_PRODUCTOS", parametros).Tables[0];
 
             if (dataTable.Rows.Count == 0) throw new Exception("No se encontró el producto de ID: " + id + ".");
 
             return new Producto(Convert.ToInt32(dataTable.Rows[0]["ID_PRODUCTO"]),
-                                                dataTable.Rows[0]["NOMBRE"].ToString(),
-                                                Convert.ToDecimal(dataTable.Rows[0]["PRECIO"]),
-                                                new Categoria(Convert.ToInt32(dataTable.Rows[0]["ID_CATEGORIA"]),
-                                                              dataTable.Rows[0]["NOMBRE_CATEGORIA"].ToString()));
+                                dataTable.Rows[0]["NOMBRE"].ToString(),
+                                Convert.ToDecimal(dataTable.Rows[0]["PRECIO"]),
+                                new Categoria(Convert.ToInt32(dataTable.Rows[0]["ID_CATEGORIA"]),
+                                              dataTable.Rows[0]["NOMBRE_CATEGORIA"].ToString()));
         }
 
         public void Update(Producto producto)
