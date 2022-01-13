@@ -23,11 +23,18 @@ namespace LagartoStoreApp.PL
             lblTitulo.Text = "ACTUALIZAR PRODUCTO";
             lblTitulo.Location = new Point(62, lblTitulo.Location.Y);
 
-            LoadCategoriaComboBox();
+            try
+            {
+                LoadCategoriaComboBox();
 
-            nombreTextBox.Text = producto.Nombre;
-            precioTextBox.Text = producto.Precio.ToString();
-            categoriaComboBox.SelectedValue = producto.Categoria.Id;
+                nombreTextBox.Text = producto.Nombre;
+                precioTextBox.Text = producto.Precio.ToString();
+                categoriaComboBox.SelectedValue = producto.Categoria.Id;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void LoadCategoriaComboBox()

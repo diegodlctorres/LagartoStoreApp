@@ -15,5 +15,6 @@ namespace LagartoStoreApp
         public static readonly CuentaDAL cuentaDAL = new CuentaDAL();
         public static readonly ClienteDAL clienteDAL = new ClienteDAL();
         public static readonly ColaboradorDAL colaboradorDAL = new ColaboradorDAL();
+        public static readonly CompraDAL compraDAL = new CompraDAL();
     }
 }

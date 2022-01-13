@@ -135,12 +135,6 @@
     <Compile Include="PL\FrmCargo.Designer.cs">
       <DependentUpon>FrmCargo.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\FrmCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmCompras.Designer.cs">
-      <DependentUpon>FrmCompras.cs</DependentUpon>
-    </Compile>
     <Compile Include="PL\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +195,12 @@
     <Compile Include="PL\FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FrmCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FrmCompra.Designer.cs">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
