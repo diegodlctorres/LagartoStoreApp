@@ -86,6 +86,11 @@ namespace LagartoStoreApp.PL
         private void RegistroDeCategoríasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ShowForm(new FrmCategoria());
+        }
+
+        private void RegistroDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(new FrmCompra());
         } 
         #endregion
 

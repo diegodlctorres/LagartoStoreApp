@@ -50,6 +50,7 @@ namespace LagartoStoreApp.PL
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.registroDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +81,8 @@ namespace LagartoStoreApp.PL
             this.registroDeUsuariosToolStripMenuItem,
             this.registroDeColaboradoresToolStripMenuItem,
             this.registroDeClientesToolStripMenuItem,
-            this.registroDeProductosToolStripMenuItem});
+            this.registroDeProductosToolStripMenuItem,
+            this.registroDeComprasToolStripMenuItem});
             this.mantenimientosMenu.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.mantenimientosMenu.ForeColor = System.Drawing.Color.White;
             this.mantenimientosMenu.Name = "mantenimientosMenu";
@@ -251,6 +253,13 @@ namespace LagartoStoreApp.PL
             this.panelContenedor.Size = new System.Drawing.Size(807, 573);
             this.panelContenedor.TabIndex = 4;
             // 
+            // registroDeComprasToolStripMenuItem
+            // 
+            this.registroDeComprasToolStripMenuItem.Name = "registroDeComprasToolStripMenuItem";
+            this.registroDeComprasToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.registroDeComprasToolStripMenuItem.Text = "Registro de compras";
+            this.registroDeComprasToolStripMenuItem.Click += new System.EventHandler(this.RegistroDeComprasToolStripMenuItem_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +308,7 @@ namespace LagartoStoreApp.PL
         private System.Windows.Forms.ToolStripMenuItem registroDeCategoríasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem reportesMenu;
         private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.ToolStripMenuItem registroDeComprasToolStripMenuItem;
     }
 }
 

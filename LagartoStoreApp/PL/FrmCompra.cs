@@ -20,9 +20,14 @@ namespace LagartoStoreApp.PL
         {
             Buscar();
 
+            LoadCategoriaComboBox();
+        }
+
+        private void Buscar()
+        {
             try
             {
-                LoadCategoriaComboBox();
+                ProductosDataSource.DataSource = productos = new BindingList<Producto>(AppEngine.productoDAL.GetAll());
             }
             catch (Exception ex)
             {
@@ -32,18 +37,12 @@ namespace LagartoStoreApp.PL
 
         private void LoadCategoriaComboBox()
         {
-            categoriaComboBox.DataSource = AppEngine.categoriaDAL.GetAll();
-            categoriaComboBox.DisplayMember = "NOMBRE";
-            categoriaComboBox.ValueMember = "ID";
-            categoriaComboBox.SelectedIndex = -1;
-        }
-
-        private void Buscar()
-        {
             try
             {
-                nombreTextBox.Text = "";
-                ProductosDataSource.DataSource = productos = new BindingList<Producto>(AppEngine.productoDAL.GetAll());
+                categoriaComboBox.DataSource = AppEngine.categoriaDAL.GetAll();
+                categoriaComboBox.DisplayMember = "NOMBRE";
+                categoriaComboBox.ValueMember = "ID";
+                categoriaComboBox.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -51,20 +50,7 @@ namespace LagartoStoreApp.PL
             }
         }
 
-        private void CategoriaCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            categoriaComboBox.Enabled = categoriaCheckBox.Checked;
-        }
-
-        private void BtnLimpiar_Click(object sender, EventArgs e)
-        {
-            categoriaCheckBox.Checked = false;
-            categoriaComboBox.SelectedIndex = -1;
-            nombreTextBox.Text = idTextBox.Text = "";
-
-            grdProductos.DataSource = productos;
-        }
-
+        #region Filtros
         private void NombreTextBox_TextChanged(object sender, EventArgs e)
         {
             ProductosDataSource.DataSource = productos.Where(x => x.Nombre.Contains(nombreTextBox.Text));
@@ -75,11 +61,33 @@ namespace LagartoStoreApp.PL
             ProductosDataSource.DataSource = productos.Where(x => x.Id.ToString().Contains(idTextBox.Text));
         }
 
+        private void CategoriaCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            categoriaComboBox.Enabled = categoriaCheckBox.Checked;
+        }
+
         private void CategoriaComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (!categoriaCheckBox.Checked) return;
 
             ProductosDataSource.DataSource = productos.Where(x => x.Categoria.Id == (categoriaComboBox.SelectedItem as Categoria).Id);
+        }
+        #endregion
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            categoriaCheckBox.Checked = false;
+            categoriaComboBox.SelectedIndex = -1;
+            nombreTextBox.Text = idTextBox.Text = "";
+
+            Buscar();
+        }
+
+        private void GrdProductos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Producto producto = grdProductos.CurrentRow.DataBoundItem as Producto;
+            idTextBox.Text = producto.Id.ToString();
+            nombreTextBox.Text = producto.Nombre;
         }
     }
 }

@@ -23,25 +23,25 @@ namespace LagartoStoreApp.PL
             lblTitulo.Text = "ACTUALIZAR PRODUCTO";
             lblTitulo.Location = new Point(62, lblTitulo.Location.Y);
 
+            LoadCategoriaComboBox();
+
+            nombreTextBox.Text = producto.Nombre;
+            precioTextBox.Text = producto.Precio.ToString();
+            categoriaComboBox.SelectedValue = producto.Categoria.Id;
+        }
+
+        private void LoadCategoriaComboBox()
+        {
             try
             {
-                LoadCategoriaComboBox();
-
-                nombreTextBox.Text = producto.Nombre;
-                precioTextBox.Text = producto.Precio.ToString();
-                categoriaComboBox.SelectedValue = producto.Categoria.Id;
+                categoriaComboBox.DataSource = AppEngine.categoriaDAL.GetAll();
+                categoriaComboBox.DisplayMember = "NOMBRE";
+                categoriaComboBox.ValueMember = "ID";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
-        }
-
-        private void LoadCategoriaComboBox()
-        {
-            categoriaComboBox.DataSource = AppEngine.categoriaDAL.GetAll();
-            categoriaComboBox.DisplayMember = "NOMBRE";
-            categoriaComboBox.ValueMember = "ID";
         }
 
         #region Eventos KeyPress
@@ -53,7 +53,7 @@ namespace LagartoStoreApp.PL
         private void PrecioTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13) BtnNuevo_Click(sender, e);
-        }        
+        }
         #endregion
 
         private void BtnNuevo_Click(object sender, EventArgs e)
