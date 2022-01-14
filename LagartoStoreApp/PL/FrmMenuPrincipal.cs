@@ -75,7 +75,7 @@ namespace LagartoStoreApp.PL
 
         private void RegistroDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ShowForm(new FrmCliente());
         }
 
         private void RegistroDeProductosToolStripMenuItem_Click(object sender, EventArgs e)

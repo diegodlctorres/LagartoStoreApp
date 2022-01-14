@@ -11,5 +11,11 @@
             Codigo = codigo;
         }
 
+        public Cliente(Usuario usuario) : base(usuario.Id, usuario.Nombre, usuario.Apellido, usuario.Telefono, usuario.Sexo, usuario.Correo, usuario.Dni) { }        
+
+        public override string ToString()
+        {
+            return string.Format("{0} - {1} {2}", Codigo, Nombre, Apellido);
+        }
     }
 }

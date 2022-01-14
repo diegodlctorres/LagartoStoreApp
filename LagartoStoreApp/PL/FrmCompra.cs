@@ -89,5 +89,10 @@ namespace LagartoStoreApp.PL
             idTextBox.Text = producto.Id.ToString();
             nombreTextBox.Text = producto.Nombre;
         }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

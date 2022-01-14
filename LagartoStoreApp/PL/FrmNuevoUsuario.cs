@@ -8,19 +8,23 @@ namespace LagartoStoreApp.PL
     public partial class FrmNuevoUsuario : Form
     {
         private readonly Usuario usuario;
+        private readonly Cliente cliente;
+
+        private bool esFrmUsuario;
 
         public FrmNuevoUsuario()
         {
             InitializeComponent();
+            esFrmUsuario = true;
         }
 
         public FrmNuevoUsuario(Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
+            esFrmUsuario = true;
 
             lblTitulo.Text = "ACTUALIZAR USUARIO";
-            lblTitulo.Location = new Point(45, lblTitulo.Location.Y);
 
             nombreTextBox.Text = usuario.Nombre;
             apellidoTextBox.Text = usuario.Apellido;
@@ -29,6 +33,27 @@ namespace LagartoStoreApp.PL
             dniTextBox.Text = usuario.Dni.ToString();
             rdoMasculino.Checked = usuario.Sexo == 'M';
             rdoFemenino.Checked = usuario.Sexo == 'F';
+        }
+
+        public FrmNuevoUsuario(Cliente cliente)
+        {
+            InitializeComponent();
+            this.cliente = cliente;
+
+            lblTitulo.Text = "ACTUALIZAR CLIENTE";
+
+            nombreTextBox.Text = cliente.Nombre;
+            apellidoTextBox.Text = cliente.Apellido;
+            telefonoTextBox.Text = cliente.Telefono.ToString();
+            correoTextBox.Text = cliente.Correo;
+            dniTextBox.Text = cliente.Dni.ToString();
+            rdoMasculino.Checked = cliente.Sexo == 'M';
+            rdoFemenino.Checked = cliente.Sexo == 'F';
+        }
+
+        private void FrmNuevoUsuario_Load(object sender, EventArgs e)
+        {
+            Util.Util.Centrar(this, lblTitulo);
         }
 
         #region Eventos KeyPress
@@ -62,29 +87,42 @@ namespace LagartoStoreApp.PL
         {
             try
             {
-                if (usuario is null)
+                if (esFrmUsuario)
                 {
-                    AppEngine.usuarioDAL.Create(new Usuario(1,
-                        nombreTextBox.Text,
-                        apellidoTextBox.Text,
-                        Convert.ToInt32(!string.IsNullOrEmpty(telefonoTextBox.Text) ? telefonoTextBox.Text : "0"),
-                        rdoMasculino.Checked ? 'M' : 'F',
-                        correoTextBox.Text,
-                        Convert.ToInt32(!string.IsNullOrEmpty(dniTextBox.Text) ? dniTextBox.Text : "0")));
+                    if (usuario is null)
+                    {
+                        AppEngine.usuarioDAL.Create(new Usuario(1,
+                            nombreTextBox.Text,
+                            apellidoTextBox.Text,
+                            Convert.ToInt32(!string.IsNullOrEmpty(telefonoTextBox.Text) ? telefonoTextBox.Text : "0"),
+                            rdoMasculino.Checked ? 'M' : 'F',
+                            correoTextBox.Text,
+                            Convert.ToInt32(!string.IsNullOrEmpty(dniTextBox.Text) ? dniTextBox.Text : "0")));
 
-                    MessageBox.Show("Se agregó al usuario exitosamente.", "Registrar nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("Se agregó al usuario exitosamente.", "Registrar nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    }
+                    else
+                    {
+                        usuario.Nombre = nombreTextBox.Text;
+                        usuario.Apellido = apellidoTextBox.Text;
+                        usuario.Telefono = Convert.ToInt32(!string.IsNullOrEmpty(telefonoTextBox.Text) ? telefonoTextBox.Text : "0");
+                        usuario.Sexo = rdoMasculino.Checked ? 'M' : 'F';
+                        usuario.Correo = correoTextBox.Text;
+                        usuario.Dni = Convert.ToInt32(!string.IsNullOrEmpty(dniTextBox.Text) ? dniTextBox.Text : "0");
+                        AppEngine.usuarioDAL.Update(usuario);
+
+                        MessageBox.Show("Se actualizó al usuario exitosamente.", "Actualizar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    }
                 }
                 else
                 {
-                    usuario.Nombre = nombreTextBox.Text;
-                    usuario.Apellido = apellidoTextBox.Text;
-                    usuario.Telefono = Convert.ToInt32(!string.IsNullOrEmpty(telefonoTextBox.Text) ? telefonoTextBox.Text : "0");
-                    usuario.Sexo = rdoMasculino.Checked ? 'M' : 'F';
-                    usuario.Correo = correoTextBox.Text;
-                    usuario.Dni = Convert.ToInt32(!string.IsNullOrEmpty(dniTextBox.Text) ? dniTextBox.Text : "0");
-                    AppEngine.usuarioDAL.Update(usuario);
-
-                    MessageBox.Show("Se actualizó al usuario exitosamente.", "Actualizar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    cliente.Nombre = nombreTextBox.Text;
+                    cliente.Apellido = apellidoTextBox.Text;
+                    cliente.Telefono = Convert.ToInt32(!string.IsNullOrEmpty(telefonoTextBox.Text) ? telefonoTextBox.Text : "0");
+                    cliente.Sexo = rdoMasculino.Checked ? 'M' : 'F';
+                    cliente.Correo = correoTextBox.Text;
+                    cliente.Dni = Convert.ToInt32(!string.IsNullOrEmpty(dniTextBox.Text) ? dniTextBox.Text : "0");
+                    AppEngine.clienteDAL.Update(cliente); /////////////////////////ESTO NO VAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA :(
                 }
                 BtnCancelar_Click(sender, e);
             }

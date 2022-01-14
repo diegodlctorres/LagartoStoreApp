@@ -111,7 +111,7 @@ namespace LagartoStoreApp.PL
             telefonoLabel.Name = "telefonoLabel";
             telefonoLabel.Size = new System.Drawing.Size(56, 15);
             telefonoLabel.TabIndex = 13;
-            telefonoLabel.Text = "Telefono:";
+            telefonoLabel.Text = "Teléfono:";
             // 
             // apellidoTextBox
             // 
@@ -252,6 +252,7 @@ namespace LagartoStoreApp.PL
             this.Name = "FrmNuevoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo usuario";
+            this.Load += new System.EventHandler(this.FrmNuevoUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
