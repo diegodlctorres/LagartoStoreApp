@@ -53,44 +53,14 @@
     <ApplicationIcon>lagartoICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf, Version=3.19.3.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.19.3\lib\net45\Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="K4os.Compression.LZ4, Version=1.2.16.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
-      <HintPath>..\packages\K4os.Compression.LZ4.1.2.16\lib\net46\K4os.Compression.LZ4.dll</HintPath>
-    </Reference>
-    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.16.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
-      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.16\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
-    </Reference>
-    <Reference Include="K4os.Hash.xxHash, Version=1.0.7.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
-      <HintPath>..\packages\K4os.Hash.xxHash.1.0.7\lib\net46\K4os.Hash.xxHash.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.27\lib\net452\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -101,165 +71,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.27\lib\net452\Ubiety.Dns.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.27\lib\net452\ZstdNet.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppEngine.cs" />
-    <Compile Include="BLL\Categoria.cs" />
-    <Compile Include="BLL\Cliente.cs" />
-    <Compile Include="BLL\Compra.cs" />
-    <Compile Include="BLL\Cuenta.cs" />
-    <Compile Include="BLL\Producto.cs" />
-    <Compile Include="DAL\CargoDAL.cs" />
-    <Compile Include="DAL\CategoriaDAL.cs" />
-    <Compile Include="DAL\ClienteDAL.cs" />
-    <Compile Include="DAL\ColaboradorDAL.cs" />
-    <Compile Include="DAL\CompraDAL.cs" />
-    <Compile Include="DAL\ConexionBD.cs" />
-    <Compile Include="DAL\CuentaDAL.cs" />
-    <Compile Include="DAL\DBParametro.cs" />
-    <Compile Include="BLL\Cargo.cs" />
-    <Compile Include="BLL\Colaborador.cs" />
-    <Compile Include="BLL\Entidad.cs" />
-    <Compile Include="DAL\ICrud.cs" />
-    <Compile Include="DAL\ProductoDAL.cs" />
-    <Compile Include="DAL\TurnoDAL.cs" />
-    <Compile Include="PL\FrmCargo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmCargo.Designer.cs">
-      <DependentUpon>FrmCargo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmMenuPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmMenuPrincipal.Designer.cs">
-      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmNuevoCargo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmNuevoCargo.Designer.cs">
-      <DependentUpon>FrmNuevoCargo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmNuevaCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmNuevaCategoria.Designer.cs">
-      <DependentUpon>FrmNuevaCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmNuevoTurno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmNuevoTurno.Designer.cs">
-      <DependentUpon>FrmNuevoTurno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmNuevoProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmNuevoProducto.Designer.cs">
-      <DependentUpon>FrmNuevoProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmNuevoUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmNuevoUsuario.Designer.cs">
-      <DependentUpon>FrmNuevoUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmCategoria.Designer.cs">
-      <DependentUpon>FrmCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmTurno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmTurno.Designer.cs">
-      <DependentUpon>FrmTurno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmProducto.Designer.cs">
-      <DependentUpon>FrmProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmCompra.Designer.cs">
-      <DependentUpon>FrmCompra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmCliente.Designer.cs">
-      <DependentUpon>FrmCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PL\FrmUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PL\FrmUsuario.Designer.cs">
-      <DependentUpon>FrmUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BLL\Turno.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BLL\Usuario.cs" />
-    <Compile Include="Util\Util.cs" />
-    <EmbeddedResource Include="PL\FrmCargo.resx">
-      <DependentUpon>FrmCargo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmMenuPrincipal.resx">
-      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmNuevoCargo.resx">
-      <DependentUpon>FrmNuevoCargo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmNuevaCategoria.resx">
-      <DependentUpon>FrmNuevaCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmNuevoTurno.resx">
-      <DependentUpon>FrmNuevoTurno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmNuevoProducto.resx">
-      <DependentUpon>FrmNuevoProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmNuevoUsuario.resx">
-      <DependentUpon>FrmNuevoUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmCategoria.resx">
-      <DependentUpon>FrmCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmTurno.resx">
-      <DependentUpon>FrmTurno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmProducto.resx">
-      <DependentUpon>FrmProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmCompra.resx">
-      <DependentUpon>FrmCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmCliente.resx">
-      <DependentUpon>FrmCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PL\FrmUsuario.resx">
-      <DependentUpon>FrmUsuario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -270,8 +85,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="DAL\UsuarioDAL.cs" />
-    <None Include="packages.config" />
     <None Include="Properties\DataSources\LagartoStoreApp.BLL.Cargo.datasource" />
     <None Include="Properties\DataSources\LagartoStoreApp.BLL.Categoria.datasource" />
     <None Include="Properties\DataSources\LagartoStoreApp.BLL.Producto.datasource" />
@@ -303,15 +116,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\USER.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VER.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="lagartoICO.ico" />
-    <None Include="Resources\Agregar.png" />
-    <None Include="Resources\Buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{fc28379e-a100-4817-b643-e4e871b77d3f}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{8279bedc-585e-4e45-953c-c816a7595808}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PresentationLayer\PresentationLayer.csproj">
+      <Project>{05a93d79-9bd2-4d7a-b803-e82807b99e97}</Project>
+      <Name>PresentationLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
