@@ -86,7 +86,7 @@ namespace DataAccessLayer
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }
 
-        public Cuenta GetByUsuario(string usuario, string contraseña)
+        public Cuenta GetByCredenciales(string usuario, string contraseña)
         {
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contraseña)) 
                 throw new Exception("El usuario o contraseña es incorrecto.");

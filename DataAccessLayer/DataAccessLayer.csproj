@@ -85,15 +85,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppEngine.cs" />
+    <Compile Include="Engine\AppEngine.cs" />
     <Compile Include="CargoDAL.cs" />
     <Compile Include="CategoriaDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="ColaboradorDAL.cs" />
     <Compile Include="CompraDAL.cs" />
-    <Compile Include="ConexionBD.cs" />
+    <Compile Include="Conexión\ConexionBD.cs" />
     <Compile Include="CuentaDAL.cs" />
-    <Compile Include="DBParametro.cs" />
+    <Compile Include="Conexión\DBParametro.cs" />
     <Compile Include="ICrud.cs" />
     <Compile Include="ProductoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

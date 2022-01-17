@@ -3,6 +3,7 @@ using DataAccessLayer;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Utilitario;
 
 namespace PresentationLayer
 {
@@ -21,7 +22,7 @@ namespace PresentationLayer
             this.categoria = categoria;
 
             lblTitulo.Text = "ACTUALIZAR CATEGORÍA";
-            lblTitulo.Location = new Point(44, lblTitulo.Location.Y);
+            Util.Centrar(this, lblTitulo);
 
             nombreTextBox.Text = categoria.Nombre;
         }

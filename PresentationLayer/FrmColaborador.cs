@@ -9,21 +9,22 @@ using Utilitario;
 
 namespace PresentationLayer
 {
-    public partial class FrmCliente : Form
+    public partial class FrmColaborador : Form
     {
-        BindingList<Cliente> clientes;
-        public FrmCliente()
+        public Usuario Usuario { get; set; }
+        BindingList<Colaborador> colaboradores;
+        public FrmColaborador()
         {
             InitializeComponent();
             grdConsulta.AutoGenerateColumns = false;
         }
 
-        private void FrmCliente_Load(object sender, EventArgs e)
+        private void FrmColaborador_Load(object sender, EventArgs e)
         {
             Buscar();
         }
 
-        private void FrmCliente_SizeChanged(object sender, EventArgs e)
+        private void FrmColaborador_SizeChanged(object sender, EventArgs e)
         {
             Util.Centrar(this, lblTitulo);
         }
@@ -35,7 +36,7 @@ namespace PresentationLayer
             {
                 try
                 {
-                    AppEngine.clienteDAL.Create(new Cliente(frmUsuario.Usuario));
+                    //AppEngine.colaboradorDAL.Create(new Colaborador(frmUsuario.Usuario, );
                     Buscar();
                 }
                 catch (Exception ex)
@@ -49,11 +50,11 @@ namespace PresentationLayer
         {
             if (e.ColumnIndex == cEditar.Index || e.ColumnIndex == cEliminar.Index)
             {
-                Cliente cliente = clientes.Where(x => x.Id == Convert.ToInt32(grdConsulta.Rows[e.RowIndex].Cells[cId.Index].Value)).FirstOrDefault();
+                Colaborador colaborador = colaboradores.Where(x => x.Id == Convert.ToInt32(grdConsulta.Rows[e.RowIndex].Cells[cId.Index].Value)).FirstOrDefault();
 
                 if (e.ColumnIndex == cEditar.Index)
                 {
-                    FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario(cliente);
+                    FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario(colaborador);
                     if (frmNuevoUsuario.ShowDialog() == DialogResult.OK)
                         Buscar();
                 }
@@ -61,13 +62,13 @@ namespace PresentationLayer
                 {
                     try
                     {
-                        DialogResult dialogResult = MessageBox.Show("¿Está seguro de eliminar el registro de cliente? \n" +
-                            "Cliente: " + cliente.ToString() + ".", "Registro de clientes",
+                        DialogResult dialogResult = MessageBox.Show("¿Está seguro de eliminar el registro de colaborador? \n" +
+                            "Colaborador: " + colaborador.ToString() + ".", "Registro de colaboradores",
                             MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                         if (dialogResult == DialogResult.OK)
                         {
-                            AppEngine.clienteDAL.Delete(cliente.Id);
-                            MessageBox.Show("Registro eliminado exitosamente.", "Registro de clientes", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                            AppEngine.colaboradorDAL.Delete(colaborador.Id);
+                            MessageBox.Show("Registro eliminado exitosamente.", "Registro de colaboradores", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             Buscar();
                         }
                     }
@@ -84,7 +85,7 @@ namespace PresentationLayer
             try
             {
                 txtBuscar.Text = "";
-                Fuente.DataSource = clientes = new BindingList<Cliente>(AppEngine.clienteDAL.GetAll());
+                Fuente.DataSource = colaboradores = new BindingList<Colaborador>(AppEngine.colaboradorDAL.GetAll());
             }
             catch (Exception ex)
             {
@@ -94,7 +95,7 @@ namespace PresentationLayer
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Fuente.DataSource = clientes.Where(x => x.Nombre.Contains(txtBuscar.Text));
+            Fuente.DataSource = colaboradores.Where(x => x.Nombre.Contains(txtBuscar.Text));
         }
     }
 }

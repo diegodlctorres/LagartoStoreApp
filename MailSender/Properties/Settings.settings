@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MailSender.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Correo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">lagartosolutions@gmail.com</Value>
+    </Setting>
+    <Setting Name="Contraseña" Type="System.String" Scope="User">
+      <Value Profile="(Default)">codigolagarto</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

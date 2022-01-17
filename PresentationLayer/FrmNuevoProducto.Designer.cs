@@ -142,6 +142,7 @@ namespace PresentationLayer
             // 
             // categoriaComboBox
             // 
+            this.categoriaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoriaComboBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriaComboBox.FormattingEnabled = true;
             this.categoriaComboBox.Location = new System.Drawing.Point(108, 139);

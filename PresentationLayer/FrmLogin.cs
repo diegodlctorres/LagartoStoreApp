@@ -39,7 +39,7 @@ namespace PresentationLayer
 
                 Properties.Settings.Default.Save();
 
-                AppEngine.cuenta = AppEngine.cuentaDAL.GetByUsuario(txtUsuario.Text, txtContraseña.Text);
+                AppEngine.cuenta = AppEngine.cuentaDAL.GetByCredenciales(txtUsuario.Text, txtContraseña.Text);
 
                 FrmMenuPrincipal frmMenuPrincipal = new FrmMenuPrincipal(this);
                 frmMenuPrincipal.Show();

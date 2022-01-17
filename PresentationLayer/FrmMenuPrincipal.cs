@@ -48,7 +48,7 @@ namespace PresentationLayer
         #region Formularios
         private void RegistroDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new FrmUsuario());
+            ShowForm(new FrmUsuario(false));
         }
 
         private void RegistroDeColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)

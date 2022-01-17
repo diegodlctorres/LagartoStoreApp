@@ -11,25 +11,21 @@ namespace PresentationLayer
 {
     public partial class FrmUsuario : Form
     {
-        private readonly FrmCliente frmCliente;
+        public Usuario Usuario { get; private set; }
         BindingList<Usuario> usuarios;
-        public FrmUsuario()
+
+        public FrmUsuario(bool isClienteOrColaborador)
         {
             InitializeComponent();
-            grdConsulta.AutoGenerateColumns = false;
-        }        
-
-        public FrmUsuario(FrmCliente frmCliente)
-        {
-            InitializeComponent();
-
-            this.frmCliente = frmCliente;
-            grdConsulta.CellMouseDoubleClick += new DataGridViewCellMouseEventHandler(GrdConsulta_CellMouseDoubleClick);
+            if (isClienteOrColaborador)
+                grdConsulta.CellMouseDoubleClick += new DataGridViewCellMouseEventHandler(GrdConsulta_CellMouseDoubleClick);
         }
 
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
             Util.Centrar(this, lblTitulo);
+            filtroComboBox.SelectedIndex = 1;
+            txtBuscar.Select();
             Buscar();
         }
 
@@ -89,7 +85,31 @@ namespace PresentationLayer
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Fuente.DataSource = usuarios.Where(x => x.Nombre.Contains(txtBuscar.Text));
+            switch (filtroComboBox.SelectedIndex)
+            {
+                case 0:
+                    Fuente.DataSource = usuarios.Where(x => x.Id == Convert.ToInt32(txtBuscar.Text));
+                    break;
+                case 1:
+                    Fuente.DataSource = usuarios.Where(x => x.Nombre.Contains(txtBuscar.Text.ToUpper()));
+                    break;
+                case 2:
+                    Fuente.DataSource = usuarios.Where(x => x.Apellido.Contains(txtBuscar.Text.ToUpper()));
+                    break;
+                case 3:
+                    Fuente.DataSource = usuarios.Where(x => x.Dni.ToString().Contains(txtBuscar.Text));
+                    break;
+                case 4:
+                    Fuente.DataSource = usuarios.Where(x => x.Correo.Contains(txtBuscar.Text.ToLower()));
+                    break;
+                case 5:
+                    Fuente.DataSource = usuarios.Where(x => x.Telefono.ToString().Contains(txtBuscar.Text));
+                    break;
+            }            
+        }
+        private void FiltroComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "";
         }
 
         private void GrdConsulta_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -97,9 +117,11 @@ namespace PresentationLayer
             if (e.Button != MouseButtons.Left || e.RowIndex < 0 || e.ColumnIndex == cEliminar.Index || e.ColumnIndex == cEditar.Index) 
                 return;
 
-            frmCliente.Usuario = usuarios.Where(x => x.Id == Convert.ToInt32(grdConsulta.Rows[e.RowIndex].Cells[cId.Index].Value)).FirstOrDefault();
+            Usuario = usuarios.Where(x => x.Id == Convert.ToInt32(grdConsulta.Rows[e.RowIndex].Cells[cId.Index].Value)).FirstOrDefault();
             DialogResult = DialogResult.OK;
             Close();
         }
+
+
     }
 }
