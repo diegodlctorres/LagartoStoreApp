@@ -48,6 +48,7 @@ namespace PresentationLayer
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.grdConsulta = new System.Windows.Forms.DataGridView();
+            this.Fuente = new System.Windows.Forms.BindingSource(this.components);
             this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +58,6 @@ namespace PresentationLayer
             this.cTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Fuente = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsulta)).BeginInit();
@@ -76,7 +76,7 @@ namespace PresentationLayer
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(811, 571);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(934, 592);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -90,7 +90,7 @@ namespace PresentationLayer
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(805, 144);
+            this.panel1.Size = new System.Drawing.Size(928, 144);
             this.panel1.TabIndex = 0;
             this.panel1.TabStop = true;
             // 
@@ -106,7 +106,7 @@ namespace PresentationLayer
             "DNI",
             "Correo",
             "Teléfono"});
-            this.filtroComboBox.Location = new System.Drawing.Point(201, 100);
+            this.filtroComboBox.Location = new System.Drawing.Point(258, 100);
             this.filtroComboBox.Name = "filtroComboBox";
             this.filtroComboBox.Size = new System.Drawing.Size(100, 24);
             this.filtroComboBox.TabIndex = 16;
@@ -118,7 +118,7 @@ namespace PresentationLayer
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(113, 104);
+            this.label1.Location = new System.Drawing.Point(170, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 7;
@@ -131,7 +131,7 @@ namespace PresentationLayer
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = global::PresentationLayer.Properties.Resources.Agregar;
-            this.btnNuevo.Location = new System.Drawing.Point(562, 95);
+            this.btnNuevo.Location = new System.Drawing.Point(619, 95);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 34);
             this.btnNuevo.TabIndex = 6;
@@ -146,7 +146,7 @@ namespace PresentationLayer
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
-            this.lblTitulo.Location = new System.Drawing.Point(215, 15);
+            this.lblTitulo.Location = new System.Drawing.Point(272, 15);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(375, 38);
             this.lblTitulo.TabIndex = 5;
@@ -156,7 +156,7 @@ namespace PresentationLayer
             // 
             this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(307, 101);
+            this.txtBuscar.Location = new System.Drawing.Point(364, 101);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(199, 23);
             this.txtBuscar.TabIndex = 0;
@@ -218,7 +218,7 @@ namespace PresentationLayer
             this.grdConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdConsulta.ShowCellToolTips = false;
             this.grdConsulta.ShowEditingIcon = false;
-            this.grdConsulta.Size = new System.Drawing.Size(805, 415);
+            this.grdConsulta.Size = new System.Drawing.Size(928, 436);
             this.grdConsulta.TabIndex = 0;
             this.grdConsulta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdConsulta_CellClick);
             // 
@@ -272,11 +272,11 @@ namespace PresentationLayer
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.cCorreo.DefaultCellStyle = dataGridViewCellStyle4;
             this.cCorreo.HeaderText = "Correo";
-            this.cCorreo.MinimumWidth = 130;
+            this.cCorreo.MinimumWidth = 180;
             this.cCorreo.Name = "cCorreo";
             this.cCorreo.ReadOnly = true;
             this.cCorreo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cCorreo.Width = 130;
+            this.cCorreo.Width = 180;
             // 
             // cSexo
             // 
@@ -341,7 +341,7 @@ namespace PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 571);
+            this.ClientSize = new System.Drawing.Size(934, 592);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
