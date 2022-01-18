@@ -14,7 +14,7 @@ namespace DataAccessLayer
             AppEngine.usuarioDAL.GetByID(cuenta.Usuario.Id);
 
             ConexionBD.SetData("INSERT INTO CUENTAS (ID_USUARIO, CONTRASEÑA, ID_USUARIO_REGISTRO) " +
-                               "VALUES (" + cuenta.Usuario.Id + ", '" + cuenta.Contraseña + "', " + AppEngine.cuenta.Usuario.Id + ")", 
+                               "VALUES (" + cuenta.Usuario.Id + ", '" + cuenta.Contraseña + "', " + AppEngine.Cuenta.Usuario.Id + ")", 
                                out int rows); 
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");

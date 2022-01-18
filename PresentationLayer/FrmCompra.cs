@@ -11,16 +11,18 @@ namespace PresentationLayer
     public partial class FrmCompra : Form
     {
         BindingList<Producto> productos;
+        BindingList<Producto> productosDelCarrito;
+        private Cliente Cliente;
+
         public FrmCompra()
         {
             InitializeComponent();
-            grdProductos.AutoGenerateColumns = false;
+            productosDelCarrito = new BindingList<Producto>();
         }
 
         private void FrmCompra_Load(object sender, EventArgs e)
         {
             Buscar();
-
             LoadCategoriaComboBox();
         }
 
@@ -86,14 +88,88 @@ namespace PresentationLayer
 
         private void GrdProductos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Producto producto = grdProductos.CurrentRow.DataBoundItem as Producto;
-            idTextBox.Text = producto.Id.ToString();
-            nombreTextBox.Text = producto.Nombre;
+            if (e.RowIndex < 0) return;
+            productosDelCarrito.Add(grdProductos.CurrentRow.DataBoundItem as Producto);
+            CarritoDataSource.DataSource = GetCarrito();
+        }
+
+        private void GrdCarrito_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == cDisminuir.Index && e.RowIndex > -1)
+            {
+                productosDelCarrito.Remove(productos
+                    .First(x => x.Id == Convert.ToInt32(grdCarrito.CurrentRow.Cells[cIdCarrito.Index].Value)));
+                CarritoDataSource.DataSource = GetCarrito();
+            }
+        }
+
+        private BindingList<Acumulado> GetCarrito()
+        {
+            totalAPagarTextBox.Text = productosDelCarrito
+                .Select(x => x.Precio)
+                .DefaultIfEmpty()
+                .Sum().ToString();
+
+            return new BindingList<Acumulado>(productosDelCarrito
+                .GroupBy(x => x.Id)
+                .OrderBy(x => x.First().Id)
+                .Select(x => new Acumulado(
+                    x.First().Id,
+                    x.First().Nombre,
+                    x.First().Precio,
+                    x.First().Categoria,
+                    x.Count(y => y.Id == x.First().Id),
+                    x.Sum(y => y.Precio))).ToList());
+        }
+
+        private void BtnLimpiarCarrito_Click(object sender, EventArgs e)
+        {
+            productosDelCarrito.Clear();
+            CarritoDataSource.DataSource = GetCarrito();
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
+            BtnCancelar_Click(sender, e);
 
+            FrmCliente frmCliente = new FrmCliente(true);
+            if (frmCliente.ShowDialog() == DialogResult.OK)
+            {
+                Cliente = frmCliente.Cliente;
+
+                idClienteTextBox.Text = frmCliente.Cliente.Id.ToString();
+                nombreClienteTextBox.Text = frmCliente.Cliente.Nombre;
+                apellidoClienteTextBox.Text = frmCliente.Cliente.Apellido;
+                dniClienteTextBox.Text = frmCliente.Cliente.Dni.ToString();
+
+                grdProductos.CellMouseDoubleClick += new DataGridViewCellMouseEventHandler(GrdProductos_CellMouseDoubleClick);
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            idClienteTextBox.Text = nombreClienteTextBox.Text = apellidoClienteTextBox.Text = dniClienteTextBox.Text = "";
+            BtnLimpiarCarrito_Click(sender, e);
+
+            grdProductos.CellMouseDoubleClick -= GrdProductos_CellMouseDoubleClick;
+        }
+
+        private void BtnComprar_Click(object sender, EventArgs e)
+        {
+            AppEngine.compraDAL.Create(new Compra(0, DateTime.Now, AppEngine.Colaborador, Cliente));
+        }
+    }
+
+    public class Acumulado : Producto
+    {
+        public int Cantidad { get; set; }
+        public decimal SubTotal { get; set; }
+
+        public Acumulado(int id, string nombre, decimal precio, Categoria categoria, int cantidad, decimal subTotal) :
+            base(id, nombre, precio, categoria)
+        {
+            Cantidad = cantidad;
+            SubTotal = subTotal;
         }
     }
 }

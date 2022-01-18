@@ -11,11 +11,14 @@ namespace PresentationLayer
 {
     public partial class FrmCliente : Form
     {
+        public Cliente Cliente { get; private set; }
         BindingList<Cliente> clientes;
-        public FrmCliente()
+
+        public FrmCliente(bool isForCompra)
         {
             InitializeComponent();
-            grdConsulta.AutoGenerateColumns = false;
+            if (isForCompra)
+                grdConsulta.CellMouseDoubleClick += GrdConsulta_CellMouseDoubleClick;
         }
 
         private void FrmCliente_Load(object sender, EventArgs e)
@@ -95,6 +98,16 @@ namespace PresentationLayer
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
             Fuente.DataSource = clientes.Where(x => x.Nombre.Contains(txtBuscar.Text));
+        }
+
+        private void GrdConsulta_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left || e.ColumnIndex == cEliminar.Index || e.ColumnIndex == cEditar.Index)
+                return;
+
+            Cliente = grdConsulta.CurrentRow.DataBoundItem as Cliente;
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

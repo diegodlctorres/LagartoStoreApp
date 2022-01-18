@@ -146,8 +146,8 @@ namespace PresentationLayer
             this.grdConsulta.AllowUserToDeleteRows = false;
             this.grdConsulta.AllowUserToResizeColumns = false;
             this.grdConsulta.AllowUserToResizeRows = false;
-            this.grdConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.grdConsulta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdConsulta.AutoGenerateColumns = false;
             this.grdConsulta.BackgroundColor = System.Drawing.Color.White;

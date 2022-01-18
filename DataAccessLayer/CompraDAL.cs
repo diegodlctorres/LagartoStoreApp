@@ -73,10 +73,16 @@ namespace DataAccessLayer
 
         public Compra GetByID(int id)
         {
+            return GetByID(id, 0);
+        }
+
+        public Compra GetByID(int id, int idCliente)
+        {
             if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
 
             List<DBParametro> parametros = new List<DBParametro>();
             parametros.Add(new DBParametro("P_ID_COMPRA", id));
+            parametros.Add(new DBParametro("P_ID_CLIENTE", idCliente));
             DataTable dataTable = ConexionBD.GetData("GET_COMPRAS", parametros).Tables[0];
 
             if (dataTable.Rows.Count == 0) throw new Exception("No se encontró la compra de ID: " + id + ".");

@@ -4,7 +4,8 @@ namespace DataAccessLayer
 {
     public abstract class AppEngine
     {
-        public static Cuenta cuenta;      
+        public static Cuenta Cuenta;
+        public static Colaborador Colaborador;
 
         public static readonly UsuarioDAL usuarioDAL = new UsuarioDAL();
         public static readonly CategoriaDAL categoriaDAL = new CategoriaDAL();

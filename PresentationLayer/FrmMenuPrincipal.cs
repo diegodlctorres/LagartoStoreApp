@@ -68,7 +68,7 @@ namespace PresentationLayer
 
         private void RegistroDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowForm(new FrmCliente());
+            ShowForm(new FrmCliente(false));
         }
 
         private void RegistroDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
