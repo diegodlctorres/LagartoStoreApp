@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Utilitario;
 
 namespace PresentationLayer
 {
@@ -20,6 +21,7 @@ namespace PresentationLayer
         private void FrmProducto_Load(object sender, EventArgs e)
         {
             Buscar();
+            Util.Centrar(this, lblTitulo);
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)

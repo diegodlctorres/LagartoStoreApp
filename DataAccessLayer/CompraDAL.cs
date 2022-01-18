@@ -71,21 +71,19 @@ namespace DataAccessLayer
             return compras;
         }
 
-        public Compra GetByID(int id)
+        public Compra GetByID(int idCompra)
         {
-            return GetByID(id, 0);
+            return GetByID(idCompra, 0);
         }
 
-        public Compra GetByID(int id, int idCliente)
+        public Compra GetByID(int idCompra, int idCliente)
         {
-            if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
-
             List<DBParametro> parametros = new List<DBParametro>();
-            parametros.Add(new DBParametro("P_ID_COMPRA", id));
+            parametros.Add(new DBParametro("P_ID_COMPRA", idCompra));
             parametros.Add(new DBParametro("P_ID_CLIENTE", idCliente));
             DataTable dataTable = ConexionBD.GetData("GET_COMPRAS", parametros).Tables[0];
 
-            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró la compra de ID: " + id + ".");
+            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró la compra de ID: " + idCompra + ".");
 
             return new Compra(Convert.ToInt32(dataTable.Rows[0]["ID_COMPRA"]),
                               Convert.ToDateTime(dataTable.Rows[0]["FECHA"]),
@@ -120,6 +118,17 @@ namespace DataAccessLayer
         public void Update(Compra compra)
         {
             throw new NotImplementedException();
+        }
+
+        public void GenerateCompra(int idCompra, int idProducto, int cantidad)
+        {
+            if (idCompra < 1 || idProducto < 1 || cantidad  < 1) throw new Exception("Parámetros incorrectos.");
+
+            ConexionBD.SetData("INSERT INTO COMPRAS_PRODUCTOS (ID_COMPRA, ID_PRODUCTO, CANTIDAD) " +
+                               "VALUES(" + idCompra + ", " + idProducto + ", " + cantidad + ")",
+                               out int rows);
+
+            if (rows == 0) throw new Exception("No se actualizó ningún registro.");
         }
     }
 }

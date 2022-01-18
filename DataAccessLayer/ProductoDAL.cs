@@ -11,8 +11,8 @@ namespace DataAccessLayer
         {
             if (producto is null) throw new ArgumentNullException(nameof(producto));
 
-            ConexionBD.SetData("INSERT INTO PRODUCTOS (NOMBRE, PRECIO, ID_CATEGORIA) " +
-                               "VALUES ('" + producto.Nombre + "', " + producto.Precio + ", " + producto.Categoria.Id + ")", 
+            ConexionBD.SetData("INSERT INTO PRODUCTOS (NOMBRE, PRECIO, ID_CATEGORIA, STOCK) " +
+                               "VALUES ('" + producto.Nombre + "', " + producto.Precio + ", " + producto.Categoria.Id + ", " + producto.Stock + ")", 
                                out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
@@ -39,6 +39,7 @@ namespace DataAccessLayer
                 productos.Add(new Producto(Convert.ToInt32(row["ID_PRODUCTO"]), 
                                            row["NOMBRE"].ToString(),
                                            Convert.ToDecimal(row["PRECIO"]), 
+                                           Convert.ToInt32(row["STOCK"]),
                                            new Categoria(Convert.ToInt32(row["ID_CATEGORIA"]),
                                                          row["NOMBRE_CATEGORIA"].ToString())));
             }
@@ -59,6 +60,7 @@ namespace DataAccessLayer
             return new Producto(Convert.ToInt32(dataTable.Rows[0]["ID_PRODUCTO"]),
                                 dataTable.Rows[0]["NOMBRE"].ToString(),
                                 Convert.ToDecimal(dataTable.Rows[0]["PRECIO"]),
+                                Convert.ToInt32(dataTable.Rows[0]["STOCK"]),
                                 new Categoria(Convert.ToInt32(dataTable.Rows[0]["ID_CATEGORIA"]),
                                               dataTable.Rows[0]["NOMBRE_CATEGORIA"].ToString()));
         }
@@ -67,7 +69,8 @@ namespace DataAccessLayer
         {
             ConexionBD.SetData("UPDATE PRODUCTOS SET NOMBRE = '" + producto.Nombre + "', " +
                                                     "PRECIO = " + producto.Precio + ", " +
-                                                    "ID_CATEGORIA = " + producto.Categoria.Id +
+                                                    "ID_CATEGORIA = " + producto.Categoria.Id + ", " +
+                                                    "STOCK = " + producto.Stock +
                                              " WHERE ID_PRODUCTO = " + producto.Id, out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");

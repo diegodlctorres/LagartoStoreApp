@@ -23,7 +23,6 @@ namespace PresentationLayer
         private void FrmCompra_Load(object sender, EventArgs e)
         {
             Buscar();
-            LoadCategoriaComboBox();
         }
 
         private void Buscar()
@@ -31,6 +30,7 @@ namespace PresentationLayer
             try
             {
                 ProductosDataSource.DataSource = productos = new BindingList<Producto>(AppEngine.productoDAL.GetAll());
+                LoadCategoriaComboBox();
             }
             catch (Exception ex)
             {
@@ -40,17 +40,10 @@ namespace PresentationLayer
 
         private void LoadCategoriaComboBox()
         {
-            try
-            {
-                categoriaComboBox.DataSource = AppEngine.categoriaDAL.GetAll();
-                categoriaComboBox.DisplayMember = "NOMBRE";
-                categoriaComboBox.ValueMember = "ID";
-                categoriaComboBox.SelectedIndex = -1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
+            categoriaComboBox.DataSource = AppEngine.categoriaDAL.GetAll();
+            categoriaComboBox.DisplayMember = "NOMBRE";
+            categoriaComboBox.ValueMember = "ID";
+            categoriaComboBox.SelectedIndex = -1;
         }
 
         #region Filtros
@@ -89,7 +82,9 @@ namespace PresentationLayer
         private void GrdProductos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
             productosDelCarrito.Add(grdProductos.CurrentRow.DataBoundItem as Producto);
+            grdProductos.CurrentRow.Cells[cStock.Index].Value = Convert.ToInt32(grdProductos.CurrentRow.Cells[cStock.Index].Value) - 1;
             CarritoDataSource.DataSource = GetCarrito();
         }
 
@@ -97,8 +92,13 @@ namespace PresentationLayer
         {
             if (e.ColumnIndex == cDisminuir.Index && e.RowIndex > -1)
             {
-                productosDelCarrito.Remove(productos
-                    .First(x => x.Id == Convert.ToInt32(grdCarrito.CurrentRow.Cells[cIdCarrito.Index].Value)));
+                productosDelCarrito.Remove(productos.First(x => x.Id == Convert.ToInt32(grdCarrito.CurrentRow.Cells[cIdCarrito.Index].Value)));
+
+                DataGridViewRow row =  grdProductos.Rows
+                    .Cast<DataGridViewRow>()
+                    .First(x => Convert.ToInt32(x.Cells[cId.Index].Value) == Convert.ToInt32(grdCarrito.CurrentRow.Cells[cIdCarrito.Index].Value));
+                row.Cells[cStock.Index].Value = Convert.ToInt32(row.Cells[cStock.Index].Value) + 1;
+
                 CarritoDataSource.DataSource = GetCarrito();
             }
         }
@@ -117,6 +117,7 @@ namespace PresentationLayer
                     x.First().Id,
                     x.First().Nombre,
                     x.First().Precio,
+                    x.First().Stock,
                     x.First().Categoria,
                     x.Count(y => y.Id == x.First().Id),
                     x.Sum(y => y.Precio))).ToList());
@@ -156,7 +157,23 @@ namespace PresentationLayer
 
         private void BtnComprar_Click(object sender, EventArgs e)
         {
-            AppEngine.compraDAL.Create(new Compra(0, DateTime.Now, AppEngine.Colaborador, Cliente));
+            try
+            {
+                AppEngine.compraDAL.Create(new Compra(0, DateTime.Now, AppEngine.Colaborador, Cliente));
+                Compra compra = AppEngine.compraDAL.GetByID(0, Cliente.Id);
+                foreach (Acumulado item in CarritoDataSource.DataSource as BindingList<Acumulado>)
+                {
+                    AppEngine.compraDAL.GenerateCompra(compra.Id, item.Id, item.Cantidad);
+                }
+
+                MessageBox.Show("¡Se registró la compra exitosamente!", "Registro de compras", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                Buscar();
+                BtnCancelar_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
     }
 
@@ -165,8 +182,8 @@ namespace PresentationLayer
         public int Cantidad { get; set; }
         public decimal SubTotal { get; set; }
 
-        public Acumulado(int id, string nombre, decimal precio, Categoria categoria, int cantidad, decimal subTotal) :
-            base(id, nombre, precio, categoria)
+        public Acumulado(int id, string nombre, decimal precio, int stock, Categoria categoria, int cantidad, decimal subTotal) :
+            base(id, nombre, precio, stock, categoria)
         {
             Cantidad = cantidad;
             SubTotal = subTotal;

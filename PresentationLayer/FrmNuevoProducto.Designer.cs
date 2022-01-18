@@ -33,6 +33,7 @@ namespace PresentationLayer
             System.Windows.Forms.Label apellidoLabel;
             System.Windows.Forms.Label dniLabel;
             System.Windows.Forms.Label nombreLabel;
+            System.Windows.Forms.Label label1;
             this.precioTextBox = new System.Windows.Forms.TextBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -40,9 +41,11 @@ namespace PresentationLayer
             this.lblTitulo = new System.Windows.Forms.Label();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaComboBox = new System.Windows.Forms.ComboBox();
+            this.stockTextBox = new System.Windows.Forms.TextBox();
             apellidoLabel = new System.Windows.Forms.Label();
             dniLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +53,7 @@ namespace PresentationLayer
             // 
             apellidoLabel.AutoSize = true;
             apellidoLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            apellidoLabel.Location = new System.Drawing.Point(42, 107);
+            apellidoLabel.Location = new System.Drawing.Point(42, 108);
             apellidoLabel.Name = "apellidoLabel";
             apellidoLabel.Size = new System.Drawing.Size(45, 15);
             apellidoLabel.TabIndex = 1;
@@ -60,7 +63,7 @@ namespace PresentationLayer
             // 
             dniLabel.AutoSize = true;
             dniLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dniLabel.Location = new System.Drawing.Point(42, 142);
+            dniLabel.Location = new System.Drawing.Point(42, 144);
             dniLabel.Name = "dniLabel";
             dniLabel.Size = new System.Drawing.Size(60, 15);
             dniLabel.TabIndex = 5;
@@ -76,10 +79,20 @@ namespace PresentationLayer
             nombreLabel.TabIndex = 9;
             nombreLabel.Text = "Nombre:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(42, 180);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(39, 15);
+            label1.TabIndex = 16;
+            label1.Text = "Stock:";
+            // 
             // precioTextBox
             // 
             this.precioTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioTextBox.Location = new System.Drawing.Point(108, 104);
+            this.precioTextBox.Location = new System.Drawing.Point(108, 105);
             this.precioTextBox.MaxLength = 45;
             this.precioTextBox.Name = "precioTextBox";
             this.precioTextBox.Size = new System.Drawing.Size(103, 21);
@@ -103,7 +116,7 @@ namespace PresentationLayer
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(85, 186);
+            this.btnNuevo.Location = new System.Drawing.Point(85, 220);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(102, 30);
             this.btnNuevo.TabIndex = 7;
@@ -117,7 +130,7 @@ namespace PresentationLayer
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(193, 186);
+            this.btnCancelar.Location = new System.Drawing.Point(193, 220);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(102, 30);
             this.btnCancelar.TabIndex = 8;
@@ -145,17 +158,30 @@ namespace PresentationLayer
             this.categoriaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoriaComboBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriaComboBox.FormattingEnabled = true;
-            this.categoriaComboBox.Location = new System.Drawing.Point(108, 139);
+            this.categoriaComboBox.Location = new System.Drawing.Point(108, 141);
             this.categoriaComboBox.Name = "categoriaComboBox";
             this.categoriaComboBox.Size = new System.Drawing.Size(230, 24);
             this.categoriaComboBox.TabIndex = 15;
+            // 
+            // stockTextBox
+            // 
+            this.stockTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stockTextBox.Location = new System.Drawing.Point(108, 177);
+            this.stockTextBox.MaxLength = 45;
+            this.stockTextBox.Name = "stockTextBox";
+            this.stockTextBox.Size = new System.Drawing.Size(103, 21);
+            this.stockTextBox.TabIndex = 17;
+            this.stockTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.stockTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StockTextBox_KeyPress);
             // 
             // FrmNuevoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(214)))));
-            this.ClientSize = new System.Drawing.Size(380, 240);
+            this.ClientSize = new System.Drawing.Size(380, 273);
+            this.Controls.Add(label1);
+            this.Controls.Add(this.stockTextBox);
             this.Controls.Add(this.categoriaComboBox);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnCancelar);
@@ -169,6 +195,7 @@ namespace PresentationLayer
             this.Name = "FrmNuevoProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo usuario";
+            this.Load += new System.EventHandler(this.FrmNuevoProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,5 +210,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.BindingSource productoBindingSource;
         private System.Windows.Forms.ComboBox categoriaComboBox;
+        private System.Windows.Forms.TextBox stockTextBox;
     }
 }
