@@ -9,16 +9,31 @@ namespace PresentationLayer
     public partial class FrmNuevoColaborador : Form
     {
         private readonly Usuario usuario;
+        private readonly Colaborador colaborador;
+        private Cuenta cuenta;
 
-        public FrmNuevoColaborador(Usuario usuario, bool isNuevo)
+        public FrmNuevoColaborador(Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
 
-            LoadComboBoxes();
+            LoadComboBoxes(false);
         }
 
-        private void LoadComboBoxes()
+        public FrmNuevoColaborador(Colaborador colaborador)
+        {
+            InitializeComponent();
+            lblTitulo.Text = "ACTUALIZAR COLABORADOR";
+            this.colaborador = colaborador;
+
+            LoadComboBoxes(true);
+            cargoComboBox.SelectedValue = colaborador.Cargo.Id;
+            turnoComboBox.SelectedValue = colaborador.Turno.Id;
+
+            contraseñaTextBox.Text = cuenta.Contraseña;
+        }
+
+        private void LoadComboBoxes(bool isUpdate)
         {
             try
             {
@@ -29,6 +44,9 @@ namespace PresentationLayer
                 cargoComboBox.DataSource = AppEngine.cargoDAL.GetAll();
                 cargoComboBox.DisplayMember = "NOMBRE";
                 cargoComboBox.ValueMember = "ID";
+
+                if (isUpdate)
+                    cuenta = AppEngine.cuentaDAL.GetByID(0, colaborador.Id);
             }
             catch (Exception ex)
             {
@@ -45,30 +63,30 @@ namespace PresentationLayer
         {
             try
             {
-                //if (usuario is null)
-                //{
-                //    AppEngine.usuarioDAL.Create(new Usuario(1,
-                //        contraseñaTextBox.Text,
-                //        apellidoTextBox.Text,
-                //        Convert.ToInt32(!string.IsNullOrEmpty(telefonoTextBox.Text) ? telefonoTextBox.Text : "0"),
-                //        rdoMasculino.Checked ? 'M' : 'F',
-                //        correoTextBox.Text,
-                //        Convert.ToInt32(!string.IsNullOrEmpty(dniTextBox.Text) ? dniTextBox.Text : "0")));
+                if (colaborador is null)
+                {
+                    AppEngine.colaboradorDAL.Create(
+                        new Colaborador(usuario,
+                        cargoComboBox.SelectedItem as Cargo,
+                        turnoComboBox.SelectedItem as Turno,
+                        DateTime.Now, new DateTime(), 0));
 
-                //    MessageBox.Show("Se agregó al usuario exitosamente.", "Registrar nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                //}
-                //else
-                //{
-                //    usuario.Nombre = contraseñaTextBox.Text;
-                //    usuario.Apellido = apellidoTextBox.Text;
-                //    usuario.Telefono = Convert.ToInt32(!string.IsNullOrEmpty(telefonoTextBox.Text) ? telefonoTextBox.Text : "0");
-                //    usuario.Sexo = rdoMasculino.Checked ? 'M' : 'F';
-                //    usuario.Correo = correoTextBox.Text;
-                //    usuario.Dni = Convert.ToInt32(!string.IsNullOrEmpty(dniTextBox.Text) ? dniTextBox.Text : "0");
-                //    AppEngine.usuarioDAL.Update(usuario);
+                    AppEngine.cuentaDAL.Create(new Cuenta(1, usuario, "", contraseñaTextBox.Text, true));
 
-                //    MessageBox.Show("Se actualizó al usuario exitosamente.", "Actualizar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                //}
+                    cuenta = AppEngine.cuentaDAL.GetByID(0, usuario.Id);
+
+                    MessageBox.Show("Se agregó al colaborador exitosamente.", "Registrar nuevo colaborador", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                }
+                else if (usuario is null)
+                {
+                    colaborador.Cargo = cargoComboBox.SelectedItem as Cargo;
+                    colaborador.Turno = turnoComboBox.SelectedItem as Turno;
+                    AppEngine.colaboradorDAL.Update(colaborador);
+
+                    cuenta.Contraseña = contraseñaTextBox.Text;
+                    AppEngine.cuentaDAL.Update(cuenta);
+                    MessageBox.Show("Se actualizó el colaborador exitosamente.", "Actualizar colaborador", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                }
                 BtnCancelar_Click(sender, e);
             }
             catch (Exception ex)
@@ -86,18 +104,13 @@ namespace PresentationLayer
         #region Eventos del ícono de contraseña
         private void IconoContraseña_MouseDown(object sender, MouseEventArgs e)
         {
-            contraseñaTextBox.UseSystemPasswordChar = true;
+            contraseñaTextBox.UseSystemPasswordChar = false;
         }
 
         private void IconoContraseña_MouseUp(object sender, MouseEventArgs e)
         {
             contraseñaTextBox.UseSystemPasswordChar = true;
-        } 
-        #endregion
-
-        private void CuentaAutomaticaCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            contraseñaTextBox.Enabled = iconoContraseña.Enabled = !cuentaAutomaticaCheckBox.Checked;
         }
+        #endregion
     }
 }

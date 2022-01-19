@@ -68,7 +68,7 @@ namespace PresentationLayer
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 493);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 367);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -89,7 +89,7 @@ namespace PresentationLayer
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(24, 84);
+            this.label1.Location = new System.Drawing.Point(17, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 16);
             this.label1.TabIndex = 7;
@@ -101,11 +101,13 @@ namespace PresentationLayer
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(314, 77);
+            this.btnNuevo.Image = global::PresentationLayer.Properties.Resources.Agregar;
+            this.btnNuevo.Location = new System.Drawing.Point(303, 75);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(130, 30);
+            this.btnNuevo.Size = new System.Drawing.Size(145, 34);
             this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo cargo";
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
@@ -122,8 +124,9 @@ namespace PresentationLayer
             // 
             // txtBuscar
             // 
+            this.txtBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(86, 81);
+            this.txtBuscar.Location = new System.Drawing.Point(79, 81);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(199, 23);
             this.txtBuscar.TabIndex = 2;
@@ -181,7 +184,7 @@ namespace PresentationLayer
             this.grdConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdConsulta.ShowCellToolTips = false;
             this.grdConsulta.ShowEditingIcon = false;
-            this.grdConsulta.Size = new System.Drawing.Size(464, 362);
+            this.grdConsulta.Size = new System.Drawing.Size(464, 236);
             this.grdConsulta.TabIndex = 0;
             this.grdConsulta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdConsulta_CellClick);
             // 
@@ -199,13 +202,12 @@ namespace PresentationLayer
             // 
             // cNombre
             // 
-            this.cNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cNombre.DataPropertyName = "NOMBRE";
             this.cNombre.HeaderText = "Nombre";
             this.cNombre.MinimumWidth = 120;
             this.cNombre.Name = "cNombre";
             this.cNombre.ReadOnly = true;
-            this.cNombre.Width = 120;
             // 
             // cSalario
             // 
@@ -222,7 +224,7 @@ namespace PresentationLayer
             // 
             // cEditar
             // 
-            this.cEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(106)))), ((int)(((byte)(143)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -232,14 +234,15 @@ namespace PresentationLayer
             this.cEditar.DefaultCellStyle = dataGridViewCellStyle4;
             this.cEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cEditar.HeaderText = "";
-            this.cEditar.MinimumWidth = 100;
+            this.cEditar.MinimumWidth = 80;
             this.cEditar.Name = "cEditar";
             this.cEditar.Text = "Editar";
             this.cEditar.UseColumnTextForButtonValue = true;
+            this.cEditar.Width = 80;
             // 
             // cEliminar
             // 
-            this.cEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -249,16 +252,17 @@ namespace PresentationLayer
             this.cEliminar.DefaultCellStyle = dataGridViewCellStyle5;
             this.cEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cEliminar.HeaderText = "";
-            this.cEliminar.MinimumWidth = 100;
+            this.cEliminar.MinimumWidth = 80;
             this.cEliminar.Name = "cEliminar";
             this.cEliminar.Text = "Borrar";
             this.cEliminar.UseColumnTextForButtonValue = true;
+            this.cEliminar.Width = 80;
             // 
             // FrmCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 493);
+            this.ClientSize = new System.Drawing.Size(470, 367);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -54,15 +54,14 @@ namespace DataAccessLayer
             return cuentas;
         }
 
-        public Cuenta GetByID(int id)
+        public Cuenta GetByID(int idCuenta, int idUsuario)
         {
-            if (id < 1) throw new Exception("El ID: " + id + " es incorrecto.");
-
             List<DBParametro> parametros = new List<DBParametro>();
-            parametros.Add(new DBParametro("P_ID_CUENTA", id));
+            parametros.Add(new DBParametro("P_ID_CUENTA", idCuenta));
+            parametros.Add(new DBParametro("P_ID_USUARIO", idUsuario));
             DataTable dataTable = ConexionBD.GetData("GET_CUENTAS", parametros).Tables[0];
 
-            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró la cuenta de ID: " + id + ".");
+            if (dataTable.Rows.Count == 0) throw new Exception("No se encontraron registros con los parámetros ingresados.");
 
             return new Cuenta(Convert.ToInt32(dataTable.Rows[0]["ID_CUENTA"]),
                               new Usuario(Convert.ToInt32(dataTable.Rows[0]["ID_USUARIO"]),
@@ -75,6 +74,11 @@ namespace DataAccessLayer
                               dataTable.Rows[0]["USUARIO"].ToString(),
                               dataTable.Rows[0]["CONTRASEÑA"].ToString(),
                               Convert.ToBoolean(dataTable.Rows[0]["FLG_ACTIVO"]));
+        }
+
+        public Cuenta GetByID(int idCuenta)
+        {
+            return GetByID(idCuenta, 0);
         }
 
         public void Update(Cuenta cuenta)

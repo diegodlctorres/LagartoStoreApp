@@ -71,11 +71,6 @@ namespace DataAccessLayer
             return compras;
         }
 
-        public Compra GetByID(int idCompra)
-        {
-            return GetByID(idCompra, 0);
-        }
-
         public Compra GetByID(int idCompra, int idCliente)
         {
             List<DBParametro> parametros = new List<DBParametro>();
@@ -83,7 +78,7 @@ namespace DataAccessLayer
             parametros.Add(new DBParametro("P_ID_CLIENTE", idCliente));
             DataTable dataTable = ConexionBD.GetData("GET_COMPRAS", parametros).Tables[0];
 
-            if (dataTable.Rows.Count == 0) throw new Exception("No se encontró la compra de ID: " + idCompra + ".");
+            if (dataTable.Rows.Count == 0) throw new Exception("No se encontraron registros con los parámetros ingresados.");
 
             return new Compra(Convert.ToInt32(dataTable.Rows[0]["ID_COMPRA"]),
                               Convert.ToDateTime(dataTable.Rows[0]["FECHA"]),
@@ -113,6 +108,11 @@ namespace DataAccessLayer
                                                           dataTable.Rows[0]["CORREO"].ToString(),
                                                           Convert.ToInt32(dataTable.Rows[0]["DNI"]),
                                                           Convert.ToInt32(dataTable.Rows[0]["CODIGO_CLIENTE"])));
+        }
+
+        public Compra GetByID(int idCompra)
+        {
+            return GetByID(idCompra, 0);
         }
 
         public void Update(Compra compra)

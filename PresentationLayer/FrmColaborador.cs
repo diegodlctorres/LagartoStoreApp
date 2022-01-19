@@ -11,22 +11,20 @@ namespace PresentationLayer
 {
     public partial class FrmColaborador : Form
     {
-        public Usuario Usuario { get; set; }
         BindingList<Colaborador> colaboradores;
         public FrmColaborador()
         {
             InitializeComponent();
-            grdConsulta.AutoGenerateColumns = false;
         }
 
         private void FrmColaborador_Load(object sender, EventArgs e)
         {
             Buscar();
-        }
 
-        private void FrmColaborador_SizeChanged(object sender, EventArgs e)
-        {
+            Util.AjustarDataGridView(this, grdConsulta);
             Util.Centrar(this, lblTitulo);
+
+            filtroComboBox.SelectedIndex = 1;
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
@@ -34,15 +32,9 @@ namespace PresentationLayer
             FrmUsuario frmUsuario = new FrmUsuario(true);
             if (frmUsuario.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
-                    //AppEngine.colaboradorDAL.Create(new Colaborador(frmUsuario.Usuario, );
+                FrmNuevoColaborador frmNuevoColaborador = new FrmNuevoColaborador(frmUsuario.Usuario);
+                if (frmNuevoColaborador.ShowDialog() == DialogResult.OK)
                     Buscar();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                }
             }
         }
 
@@ -54,8 +46,8 @@ namespace PresentationLayer
 
                 if (e.ColumnIndex == cEditar.Index)
                 {
-                    FrmNuevoUsuario frmNuevoUsuario = new FrmNuevoUsuario(colaborador);
-                    if (frmNuevoUsuario.ShowDialog() == DialogResult.OK)
+                    FrmNuevoColaborador frmNuevoColaborador = new FrmNuevoColaborador(colaborador);
+                    if (frmNuevoColaborador.ShowDialog() == DialogResult.OK)
                         Buscar();
                 }
                 else if (e.ColumnIndex == cEliminar.Index)
@@ -95,7 +87,41 @@ namespace PresentationLayer
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Fuente.DataSource = colaboradores.Where(x => x.Nombre.Contains(txtBuscar.Text));
+            if (txtBuscar.Text.Length == 0)
+            {
+                Fuente.DataSource = colaboradores;
+                return;
+            }
+
+            switch (filtroComboBox.SelectedIndex)
+            {
+                case 0:
+                    Fuente.DataSource = colaboradores.Where(x => x.Id.ToString().Contains(txtBuscar.Text));
+                    break;
+                case 1:
+                    Fuente.DataSource = colaboradores.Where(x => x.Codigo.ToString().Contains(txtBuscar.Text));
+                    break;
+                case 2:
+                    Fuente.DataSource = colaboradores.Where(x => x.Nombre.Contains(txtBuscar.Text.ToUpper()));
+                    break;
+                case 3:
+                    Fuente.DataSource = colaboradores.Where(x => x.Apellido.Contains(txtBuscar.Text.ToUpper()));
+                    break;
+                case 4:
+                    Fuente.DataSource = colaboradores.Where(x => x.Dni.ToString().Contains(txtBuscar.Text));
+                    break;
+                case 5:
+                    Fuente.DataSource = colaboradores.Where(x => x.Correo.Contains(txtBuscar.Text.ToLower()));
+                    break;
+                case 6:
+                    Fuente.DataSource = colaboradores.Where(x => x.Telefono.ToString().Contains(txtBuscar.Text));
+                    break;
+            }
+        }
+
+        private void FiltroComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtBuscar.Text = "";
         }
     }
 }

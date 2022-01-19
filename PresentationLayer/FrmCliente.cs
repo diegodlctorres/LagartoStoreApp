@@ -24,10 +24,8 @@ namespace PresentationLayer
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             Buscar();
-        }
 
-        private void FrmCliente_SizeChanged(object sender, EventArgs e)
-        {
+            Util.AjustarDataGridView(this, grdConsulta);
             Util.Centrar(this, lblTitulo);
         }
 

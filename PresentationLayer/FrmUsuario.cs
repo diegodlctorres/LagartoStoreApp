@@ -105,7 +105,7 @@ namespace PresentationLayer
                 case 5:
                     Fuente.DataSource = usuarios.Where(x => x.Telefono.ToString().Contains(txtBuscar.Text));
                     break;
-            }            
+            }
         }
         private void FiltroComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -114,14 +114,12 @@ namespace PresentationLayer
 
         private void GrdConsulta_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button != MouseButtons.Left || e.RowIndex < 0 || e.ColumnIndex == cEliminar.Index || e.ColumnIndex == cEditar.Index) 
+            if (e.Button != MouseButtons.Left || e.RowIndex < 0 || e.ColumnIndex == cEliminar.Index || e.ColumnIndex == cEditar.Index)
                 return;
 
             Usuario = usuarios.Where(x => x.Id == Convert.ToInt32(grdConsulta.Rows[e.RowIndex].Cells[cId.Index].Value)).FirstOrDefault();
             DialogResult = DialogResult.OK;
             Close();
         }
-
-
     }
 }

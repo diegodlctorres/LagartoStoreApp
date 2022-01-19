@@ -13,7 +13,7 @@ namespace DataAccessLayer
 
             AppEngine.usuarioDAL.GetByID(colaborador.Id);
 
-            ConexionBD.SetData("INSER INTO COLABORADORES (ID_USUARIO, ID_CARGO, ID_TURNO) " +
+            ConexionBD.SetData("INSERT INTO COLABORADORES (ID_USUARIO, ID_CARGO, ID_TURNO) " +
                                "VALUES (" + colaborador.Id + ", " + colaborador.Cargo.Id + ", " + colaborador.Turno.Id + ")",
                                out int rows);
 
@@ -45,13 +45,13 @@ namespace DataAccessLayer
                                                   row["CORREO"].ToString(),
                                                   Convert.ToInt32(row["DNI"]),
                                                   row["APELLIDO"].ToString(),
-                                                  new Cargo(Convert.ToInt32(dataTable.Rows[0]["ID_CARGO"]),
-                                                            dataTable.Rows[0]["NOMBRE_CARGO"].ToString(),
-                                                            Convert.ToDecimal(dataTable.Rows[0]["SALARIO"])),
-                                                  new Turno(Convert.ToInt32(dataTable.Rows[0]["ID_TURNO"]),
-                                                            dataTable.Rows[0]["NOMBRE_TURNO"].ToString(),
-                                                            DateTime.Today.Add(TimeSpan.Parse(dataTable.Rows[0]["HORA_INICIO"].ToString())),
-                                                            DateTime.Today.Add(TimeSpan.Parse(dataTable.Rows[0]["HORA_FIN"].ToString()))),
+                                                  new Cargo(Convert.ToInt32(row["ID_CARGO"]),
+                                                            row["NOMBRE_CARGO"].ToString(),
+                                                            Convert.ToDecimal(row["SALARIO"])),
+                                                  new Turno(Convert.ToInt32(row["ID_TURNO"]),
+                                                            row["NOMBRE_TURNO"].ToString(),
+                                                            DateTime.Today.Add(TimeSpan.Parse(row["HORA_INICIO"].ToString())),
+                                                            DateTime.Today.Add(TimeSpan.Parse(row["HORA_FIN"].ToString()))),
                                                   Convert.ToDateTime(row["FECHA_INGRESO"]),
                                                   !string.IsNullOrEmpty(row["FECHA_CESE"].ToString()) ?
                                                        Convert.ToDateTime(row["FECHA_CESE"].ToString()) : new DateTime(),

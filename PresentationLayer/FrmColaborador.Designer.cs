@@ -44,12 +44,12 @@ namespace PresentationLayer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmColaborador));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.filtroComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.grdConsulta = new System.Windows.Forms.DataGridView();
-            this.Fuente = new System.Windows.Forms.BindingSource(this.components);
             this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +62,7 @@ namespace PresentationLayer
             this.cTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Fuente = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsulta)).BeginInit();
@@ -80,32 +81,53 @@ namespace PresentationLayer
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1011, 571);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(878, 591);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(234)))), ((int)(((byte)(243)))));
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.filtroComboBox);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnNuevo);
             this.panel1.Controls.Add(this.lblTitulo);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 144);
+            this.panel1.Size = new System.Drawing.Size(872, 144);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // filtroComboBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(181, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Buscar:";
+            this.filtroComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filtroComboBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filtroComboBox.FormattingEnabled = true;
+            this.filtroComboBox.Items.AddRange(new object[] {
+            "ID",
+            "Código",
+            "Nombre",
+            "Apellido",
+            "DNI",
+            "Correo",
+            "Teléfono"});
+            this.filtroComboBox.Location = new System.Drawing.Point(122, 98);
+            this.filtroComboBox.Name = "filtroComboBox";
+            this.filtroComboBox.Size = new System.Drawing.Size(100, 24);
+            this.filtroComboBox.TabIndex = 18;
+            this.filtroComboBox.TabStop = false;
+            this.filtroComboBox.SelectionChangeCommitted += new System.EventHandler(this.FiltroComboBox_SelectionChangeCommitted);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(40, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Buscar por:";
             // 
             // btnNuevo
             // 
@@ -114,7 +136,7 @@ namespace PresentationLayer
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = global::PresentationLayer.Properties.Resources.Agregar;
-            this.btnNuevo.Location = new System.Drawing.Point(670, 93);
+            this.btnNuevo.Location = new System.Drawing.Point(500, 91);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(160, 34);
             this.btnNuevo.TabIndex = 6;
@@ -137,7 +159,7 @@ namespace PresentationLayer
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(243, 99);
+            this.txtBuscar.Location = new System.Drawing.Point(228, 97);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(199, 23);
             this.txtBuscar.TabIndex = 2;
@@ -202,7 +224,7 @@ namespace PresentationLayer
             this.grdConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdConsulta.ShowCellToolTips = false;
             this.grdConsulta.ShowEditingIcon = false;
-            this.grdConsulta.Size = new System.Drawing.Size(1005, 415);
+            this.grdConsulta.Size = new System.Drawing.Size(872, 435);
             this.grdConsulta.TabIndex = 0;
             this.grdConsulta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdConsulta_CellClick);
             // 
@@ -225,24 +247,23 @@ namespace PresentationLayer
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.cCodigo.DefaultCellStyle = dataGridViewCellStyle3;
             this.cCodigo.HeaderText = "Código";
-            this.cCodigo.MinimumWidth = 65;
+            this.cCodigo.MinimumWidth = 60;
             this.cCodigo.Name = "cCodigo";
             this.cCodigo.ReadOnly = true;
-            this.cCodigo.Width = 65;
+            this.cCodigo.Width = 60;
             // 
             // cNombre
             // 
-            this.cNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.cNombre.DataPropertyName = "NOMBRE";
             this.cNombre.HeaderText = "Nombre";
-            this.cNombre.MinimumWidth = 120;
+            this.cNombre.MinimumWidth = 100;
             this.cNombre.Name = "cNombre";
             this.cNombre.ReadOnly = true;
-            this.cNombre.Width = 120;
             // 
             // cApellido
             // 
-            this.cApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.cApellido.DataPropertyName = "APELLIDO";
             this.cApellido.HeaderText = "Apellido";
             this.cApellido.MinimumWidth = 100;
@@ -268,11 +289,10 @@ namespace PresentationLayer
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.cCorreo.DefaultCellStyle = dataGridViewCellStyle5;
             this.cCorreo.HeaderText = "Correo";
-            this.cCorreo.MinimumWidth = 130;
+            this.cCorreo.MinimumWidth = 100;
             this.cCorreo.Name = "cCorreo";
             this.cCorreo.ReadOnly = true;
             this.cCorreo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cCorreo.Width = 130;
             // 
             // cSexo
             // 
@@ -281,10 +301,10 @@ namespace PresentationLayer
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.cSexo.DefaultCellStyle = dataGridViewCellStyle6;
             this.cSexo.HeaderText = "Sexo";
-            this.cSexo.MinimumWidth = 50;
+            this.cSexo.MinimumWidth = 40;
             this.cSexo.Name = "cSexo";
             this.cSexo.ReadOnly = true;
-            this.cSexo.Width = 50;
+            this.cSexo.Width = 40;
             // 
             // cTelefono
             // 
@@ -306,22 +326,22 @@ namespace PresentationLayer
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.cCargo.DefaultCellStyle = dataGridViewCellStyle8;
             this.cCargo.HeaderText = "Cargo";
+            this.cCargo.MinimumWidth = 100;
             this.cCargo.Name = "cCargo";
             this.cCargo.ReadOnly = true;
-            this.cCargo.Width = 69;
             // 
             // cTurno
             // 
             this.cTurno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.cTurno.DataPropertyName = "TURNO";
             this.cTurno.HeaderText = "Turno";
+            this.cTurno.MinimumWidth = 100;
             this.cTurno.Name = "cTurno";
             this.cTurno.ReadOnly = true;
-            this.cTurno.Width = 64;
             // 
             // cEditar
             // 
-            this.cEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(106)))), ((int)(((byte)(143)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,14 +351,15 @@ namespace PresentationLayer
             this.cEditar.DefaultCellStyle = dataGridViewCellStyle9;
             this.cEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cEditar.HeaderText = "";
-            this.cEditar.MinimumWidth = 100;
+            this.cEditar.MinimumWidth = 80;
             this.cEditar.Name = "cEditar";
             this.cEditar.Text = "Editar";
             this.cEditar.UseColumnTextForButtonValue = true;
+            this.cEditar.Width = 80;
             // 
             // cEliminar
             // 
-            this.cEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cEliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -348,23 +369,23 @@ namespace PresentationLayer
             this.cEliminar.DefaultCellStyle = dataGridViewCellStyle10;
             this.cEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cEliminar.HeaderText = "";
-            this.cEliminar.MinimumWidth = 100;
+            this.cEliminar.MinimumWidth = 80;
             this.cEliminar.Name = "cEliminar";
             this.cEliminar.Text = "Borrar";
             this.cEliminar.UseColumnTextForButtonValue = true;
+            this.cEliminar.Width = 80;
             // 
             // FrmColaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 571);
+            this.ClientSize = new System.Drawing.Size(878, 591);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmColaborador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmColaborador_Load);
-            this.SizeChanged += new System.EventHandler(this.FrmColaborador_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -382,7 +403,6 @@ namespace PresentationLayer
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource Fuente;
         private System.Windows.Forms.DataGridViewTextBoxColumn cId;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCodigo;
@@ -396,6 +416,8 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn cTurno;
         private System.Windows.Forms.DataGridViewButtonColumn cEditar;
         private System.Windows.Forms.DataGridViewButtonColumn cEliminar;
+        private System.Windows.Forms.ComboBox filtroComboBox;
+        private System.Windows.Forms.Label label2;
     }
 }
 

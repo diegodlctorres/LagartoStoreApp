@@ -38,7 +38,6 @@ namespace PresentationLayer
             this.cargoComboBox = new System.Windows.Forms.ComboBox();
             this.turnoComboBox = new System.Windows.Forms.ComboBox();
             this.contraseñaTextBox = new System.Windows.Forms.TextBox();
-            this.cuentaAutomaticaCheckBox = new System.Windows.Forms.CheckBox();
             this.iconoContraseña = new System.Windows.Forms.PictureBox();
             correoLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -82,7 +81,7 @@ namespace PresentationLayer
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(99, 216);
+            this.btnNuevo.Location = new System.Drawing.Point(99, 193);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(102, 30);
             this.btnNuevo.TabIndex = 7;
@@ -96,7 +95,7 @@ namespace PresentationLayer
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(207, 216);
+            this.btnCancelar.Location = new System.Drawing.Point(207, 193);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(102, 30);
             this.btnCancelar.TabIndex = 8;
@@ -137,7 +136,6 @@ namespace PresentationLayer
             // 
             // contraseñaTextBox
             // 
-            this.contraseñaTextBox.Enabled = false;
             this.contraseñaTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contraseñaTextBox.Location = new System.Drawing.Point(115, 149);
             this.contraseñaTextBox.MaxLength = 45;
@@ -146,22 +144,8 @@ namespace PresentationLayer
             this.contraseñaTextBox.TabIndex = 19;
             this.contraseñaTextBox.UseSystemPasswordChar = true;
             // 
-            // cuentaAutomaticaCheckBox
-            // 
-            this.cuentaAutomaticaCheckBox.AutoSize = true;
-            this.cuentaAutomaticaCheckBox.Checked = true;
-            this.cuentaAutomaticaCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cuentaAutomaticaCheckBox.Location = new System.Drawing.Point(115, 176);
-            this.cuentaAutomaticaCheckBox.Name = "cuentaAutomaticaCheckBox";
-            this.cuentaAutomaticaCheckBox.Size = new System.Drawing.Size(115, 17);
-            this.cuentaAutomaticaCheckBox.TabIndex = 20;
-            this.cuentaAutomaticaCheckBox.Text = "Cuenta automática";
-            this.cuentaAutomaticaCheckBox.UseVisualStyleBackColor = true;
-            this.cuentaAutomaticaCheckBox.CheckedChanged += new System.EventHandler(this.CuentaAutomaticaCheckBox_CheckedChanged);
-            // 
             // iconoContraseña
             // 
-            this.iconoContraseña.Enabled = false;
             this.iconoContraseña.Image = global::PresentationLayer.Properties.Resources.VER;
             this.iconoContraseña.Location = new System.Drawing.Point(328, 147);
             this.iconoContraseña.Name = "iconoContraseña";
@@ -177,10 +161,9 @@ namespace PresentationLayer
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(214)))));
-            this.ClientSize = new System.Drawing.Size(408, 269);
+            this.ClientSize = new System.Drawing.Size(408, 241);
             this.Controls.Add(this.iconoContraseña);
             this.Controls.Add(label2);
-            this.Controls.Add(this.cuentaAutomaticaCheckBox);
             this.Controls.Add(this.contraseñaTextBox);
             this.Controls.Add(this.turnoComboBox);
             this.Controls.Add(label1);
@@ -207,7 +190,6 @@ namespace PresentationLayer
         private System.Windows.Forms.ComboBox cargoComboBox;
         private System.Windows.Forms.ComboBox turnoComboBox;
         private System.Windows.Forms.TextBox contraseñaTextBox;
-        private System.Windows.Forms.CheckBox cuentaAutomaticaCheckBox;
         private System.Windows.Forms.PictureBox iconoContraseña;
     }
 }

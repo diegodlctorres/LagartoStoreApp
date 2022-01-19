@@ -50,10 +50,9 @@ namespace PresentationLayer
         {
             ShowForm(new FrmUsuario(false));
         }
-
-        private void RegistroDeColaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RegistroDeColaboradoresToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            ShowForm(new FrmColaborador());
         }
 
         private void RegistroDeCargosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,11 +70,10 @@ namespace PresentationLayer
             ShowForm(new FrmCliente(false));
         }
 
-        private void RegistroDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RegistroDeProductosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ShowForm(new FrmProducto());
         }
-
         private void RegistroDeCategoríasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ShowForm(new FrmCategoria());
@@ -100,5 +98,7 @@ namespace PresentationLayer
         {
             frmLogin.Show();
         }
+
+
     }
 }

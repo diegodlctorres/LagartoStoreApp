@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "Presen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilitario", "Utilitario\Utilitario.csproj", "{4007545B-AD3E-4709-874C-3E643A242825}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender", "MailSender\MailSender.csproj", "{26810BE4-8334-4694-8A2A-97C5FB559BCF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,10 +42,6 @@ Global
 		{4007545B-AD3E-4709-874C-3E643A242825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4007545B-AD3E-4709-874C-3E643A242825}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4007545B-AD3E-4709-874C-3E643A242825}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26810BE4-8334-4694-8A2A-97C5FB559BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26810BE4-8334-4694-8A2A-97C5FB559BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26810BE4-8334-4694-8A2A-97C5FB559BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26810BE4-8334-4694-8A2A-97C5FB559BCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
