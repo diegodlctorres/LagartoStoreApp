@@ -32,14 +32,12 @@ namespace PresentationLayer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.panelUsuario = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.iconoUsuario = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAcceder = new System.Windows.Forms.Button();
             this.panelContraseña = new System.Windows.Forms.Panel();
             this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.iconoContraseña = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,17 +45,19 @@ namespace PresentationLayer
             this.label2 = new System.Windows.Forms.Label();
             this.txtVersion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.recuerdameCheckBox = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iconoUsuario = new System.Windows.Forms.PictureBox();
+            this.iconoContraseña = new System.Windows.Forms.PictureBox();
             this.panelUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoUsuario)).BeginInit();
             this.panelContraseña.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoContraseña)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconoUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconoContraseña)).BeginInit();
             this.SuspendLayout();
             // 
             // panelUsuario
@@ -86,15 +86,6 @@ namespace PresentationLayer
             this.txtUsuario.Size = new System.Drawing.Size(271, 20);
             this.txtUsuario.TabIndex = 0;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuario_KeyPress);
-            // 
-            // iconoUsuario
-            // 
-            this.iconoUsuario.Image = global::PresentationLayer.Properties.Resources.USER;
-            this.iconoUsuario.Location = new System.Drawing.Point(13, 9);
-            this.iconoUsuario.Name = "iconoUsuario";
-            this.iconoUsuario.Size = new System.Drawing.Size(24, 24);
-            this.iconoUsuario.TabIndex = 0;
-            this.iconoUsuario.TabStop = false;
             // 
             // label7
             // 
@@ -172,18 +163,6 @@ namespace PresentationLayer
             this.txtContraseña.UseSystemPasswordChar = true;
             this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtContraseña_KeyPress);
             // 
-            // iconoContraseña
-            // 
-            this.iconoContraseña.Image = global::PresentationLayer.Properties.Resources.VER;
-            this.iconoContraseña.Location = new System.Drawing.Point(13, 9);
-            this.iconoContraseña.Name = "iconoContraseña";
-            this.iconoContraseña.Size = new System.Drawing.Size(24, 24);
-            this.iconoContraseña.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconoContraseña.TabIndex = 1;
-            this.iconoContraseña.TabStop = false;
-            this.iconoContraseña.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IconoContraseña_MouseDown);
-            this.iconoContraseña.MouseUp += new System.Windows.Forms.MouseEventHandler(this.IconoContraseña_MouseUp);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -248,7 +227,7 @@ namespace PresentationLayer
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(67, 368);
+            this.label2.Location = new System.Drawing.Point(67, 388);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 32);
             this.label2.TabIndex = 5;
@@ -267,23 +246,13 @@ namespace PresentationLayer
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(8, 326);
+            this.label1.Location = new System.Drawing.Point(41, 333);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 25);
+            this.label1.Size = new System.Drawing.Size(192, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "BIENVENIDO AL SISTEMA";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.Cuchito;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 78);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(275, 287);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.label1.Text = "¡BIENVENIDO!";
             // 
             // panel2
             // 
@@ -316,6 +285,37 @@ namespace PresentationLayer
             this.recuerdameCheckBox.Text = "Recuérdame";
             this.recuerdameCheckBox.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(275, 287);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // iconoUsuario
+            // 
+            this.iconoUsuario.Image = global::PresentationLayer.Properties.Resources.USER;
+            this.iconoUsuario.Location = new System.Drawing.Point(13, 9);
+            this.iconoUsuario.Name = "iconoUsuario";
+            this.iconoUsuario.Size = new System.Drawing.Size(24, 24);
+            this.iconoUsuario.TabIndex = 0;
+            this.iconoUsuario.TabStop = false;
+            // 
+            // iconoContraseña
+            // 
+            this.iconoContraseña.Image = global::PresentationLayer.Properties.Resources.VER;
+            this.iconoContraseña.Location = new System.Drawing.Point(13, 9);
+            this.iconoContraseña.Name = "iconoContraseña";
+            this.iconoContraseña.Size = new System.Drawing.Size(24, 24);
+            this.iconoContraseña.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconoContraseña.TabIndex = 1;
+            this.iconoContraseña.TabStop = false;
+            this.iconoContraseña.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IconoContraseña_MouseDown);
+            this.iconoContraseña.MouseUp += new System.Windows.Forms.MouseEventHandler(this.IconoContraseña_MouseUp);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,16 +331,16 @@ namespace PresentationLayer
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.panelUsuario.ResumeLayout(false);
             this.panelUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoUsuario)).EndInit();
             this.panelContraseña.ResumeLayout(false);
             this.panelContraseña.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoContraseña)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconoUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconoContraseña)).EndInit();
             this.ResumeLayout(false);
 
         }
