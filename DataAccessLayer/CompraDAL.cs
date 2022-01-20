@@ -13,8 +13,8 @@ namespace DataAccessLayer
 
             AppEngine.clienteDAL.GetByID(compra.Cliente.Id);
 
-            ConexionBD.SetData("INSERT INTO COMPRAS (ID_COLABORADOR, ID_CLIENTE) " +
-                               "VALUES (" + compra.Colaborador.Id + ", " + compra.Cliente.Id + ")",
+            ConexionBD.SetData("INSERT INTO COMPRAS (FECHA, ID_COLABORADOR, ID_CLIENTE) " +
+                               "VALUES (CONVERT(STR_TO_DATE('" + compra.Fecha.ToShortDateString() + "', '%d/%m/%Y'), DATE), " + compra.Colaborador.Id + ", " + compra.Cliente.Id + ")",
                                out int rows);
 
             if (rows == 0) throw new Exception("No se actualizó ningún registro.");
@@ -122,7 +122,7 @@ namespace DataAccessLayer
 
         public void GenerateCompra(int idCompra, int idProducto, int cantidad)
         {
-            if (idCompra < 1 || idProducto < 1 || cantidad  < 1) throw new Exception("Parámetros incorrectos.");
+            if (idCompra < 1 || idProducto < 1 || cantidad < 1) throw new Exception("Parámetros incorrectos.");
 
             ConexionBD.SetData("INSERT INTO COMPRAS_PRODUCTOS (ID_COMPRA, ID_PRODUCTO, CANTIDAD) " +
                                "VALUES(" + idCompra + ", " + idProducto + ", " + cantidad + ")",

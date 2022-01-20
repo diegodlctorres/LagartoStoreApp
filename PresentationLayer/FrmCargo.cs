@@ -20,6 +20,8 @@ namespace PresentationLayer
         private void FrmCargo_Load(object sender, EventArgs e)
         {
             Buscar();
+
+            txtBuscar.Select();
         }
 
         private void GrdConsulta_CellClick(object sender, DataGridViewCellEventArgs e)

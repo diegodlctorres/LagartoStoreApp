@@ -23,10 +23,13 @@ namespace PresentationLayer
 
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
-            Util.Centrar(this, lblTitulo);
-            filtroComboBox.SelectedIndex = 1;
-            txtBuscar.Select();
             Buscar();
+
+            Util.Centrar(this, lblTitulo);
+            Util.AjustarDataGridView(this, grdConsulta);
+
+            txtBuscar.Select();
+            filtroComboBox.SelectedIndex = 1;
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)

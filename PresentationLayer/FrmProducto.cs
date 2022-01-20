@@ -21,8 +21,11 @@ namespace PresentationLayer
         private void FrmProducto_Load(object sender, EventArgs e)
         {
             Buscar();
+
             Util.AjustarDataGridView(this, grdConsulta);
             Util.Centrar(this, lblTitulo);
+
+            txtBuscar.Select();
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)

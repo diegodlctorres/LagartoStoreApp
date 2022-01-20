@@ -11,6 +11,7 @@ namespace PresentationLayer
         public FrmLogin()
         {
             InitializeComponent();
+            Utilitario.Util.CrearDatosAleatorios();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)

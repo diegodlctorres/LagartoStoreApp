@@ -23,7 +23,8 @@ namespace PresentationLayer
 
             Util.AjustarDataGridView(this, grdConsulta);
             Util.Centrar(this, lblTitulo);
-
+            
+            txtBuscar.Select();
             filtroComboBox.SelectedIndex = 1;
         }
 

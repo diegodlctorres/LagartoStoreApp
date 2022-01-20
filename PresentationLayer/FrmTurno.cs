@@ -20,6 +20,8 @@ namespace PresentationLayer
         private void FrmTurno_Load(object sender, EventArgs e)
         {
             Buscar();
+
+            txtBuscar.Select();
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)

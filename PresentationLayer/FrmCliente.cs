@@ -27,6 +27,8 @@ namespace PresentationLayer
 
             Util.AjustarDataGridView(this, grdConsulta);
             Util.Centrar(this, lblTitulo);
+
+            txtBuscar.Select();
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
