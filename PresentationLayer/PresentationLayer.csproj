@@ -139,6 +139,12 @@
     <Compile Include="FrmTurno.Designer.cs">
       <DependentUpon>FrmTurno.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmComprasReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmComprasReporte.Designer.cs">
+      <DependentUpon>FrmComprasReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTurno.resx">
       <DependentUpon>FrmTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmComprasReporte.resx">
+      <DependentUpon>FrmComprasReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -251,6 +260,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filtrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lagarto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cuchito.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

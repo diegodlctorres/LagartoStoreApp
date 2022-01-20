@@ -82,14 +82,19 @@ namespace PresentationLayer
         private void RegistroDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowForm(new FrmCompra());
-        } 
+        }
+
+        private void reporteDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm(new FrmComprasReporte());
+        }
         #endregion
 
         private void ShowForm(Form form)
         {
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            panelContenedor.Controls.Add(form);            
+            panelContenedor.Controls.Add(form);
             form.Show();
             form.BringToFront();
         }

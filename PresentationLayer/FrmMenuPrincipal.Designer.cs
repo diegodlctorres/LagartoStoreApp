@@ -52,6 +52,7 @@ namespace PresentationLayer
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.reporteDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -175,6 +176,8 @@ namespace PresentationLayer
             // 
             // reportesMenu
             // 
+            this.reportesMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteDeComprasToolStripMenuItem});
             this.reportesMenu.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.reportesMenu.ForeColor = System.Drawing.Color.White;
             this.reportesMenu.Name = "reportesMenu";
@@ -267,9 +270,18 @@ namespace PresentationLayer
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
+            // reporteDeComprasToolStripMenuItem
+            // 
+            this.reporteDeComprasToolStripMenuItem.Name = "reporteDeComprasToolStripMenuItem";
+            this.reporteDeComprasToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.reporteDeComprasToolStripMenuItem.Text = "Reporte de compras";
+            this.reporteDeComprasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeComprasToolStripMenuItem_Click);
+            // 
             // panelContenedor
             // 
             this.panelContenedor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelContenedor.BackgroundImage = global::PresentationLayer.Properties.Resources.Lagarto;
+            this.panelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 30);
             this.panelContenedor.Name = "panelContenedor";
@@ -327,6 +339,7 @@ namespace PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem registroDeComprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDeColaboradoresToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem registroDeProductosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeComprasToolStripMenuItem;
     }
 }
 

@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using Utilitario;
 
 namespace PresentationLayer
 {
@@ -11,7 +12,7 @@ namespace PresentationLayer
         public FrmLogin()
         {
             InitializeComponent();
-            Utilitario.Util.CrearDatosAleatorios();
+            //Util.CrearDatosAleatorios();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)

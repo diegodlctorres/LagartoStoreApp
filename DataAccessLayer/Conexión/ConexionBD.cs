@@ -8,7 +8,7 @@ namespace DataAccessLayer
     public static class ConexionBD
     {
         private static MySqlConnection conexionBD;
-        private static string connectionString = "datasource=localhost;port=3306;username=root;password=021217;database=lagartobd";
+        private static readonly string connectionString = "datasource=localhost;port=3306;username=root;password=021217;database=lagartobd";
 
         public static MySqlConnection GetConexionBD()
         {

@@ -17,17 +17,7 @@ namespace Utilitario
 
         public static void AjustarDataGridView(Control contenedor, DataGridView dataGridView)
         {
-            //var b = dataGridView.VerticalScrollBar;
-
-            //foreach(var a  in dataGridView.Controls.OfType<ScrollBar>())
-            //{
-            //    var b = a.Width;
-            //}
-
-            //var c = dataGridView.Columns.Cast<DataGridViewColumn>().Sum(x => x.Width);           
-
             var a = dataGridView.Rows.Count > 19 ? 17 : 0;
-
             contenedor.Width = dataGridView.Columns.Cast<DataGridViewColumn>().Sum(x => x.Width) + 23 + a;
             // 1 a cada lado y ¿21?
         }
@@ -49,10 +39,10 @@ namespace Utilitario
 
             for (int i = 1; i <= 50; i++)
             {
-                int aux = random.Next(1, totalClientes - 1);
+                int aux = random.Next(1, totalClientes );
                 Cliente cliente = clientes.Where(x => x.Id == aux).First();
 
-                aux = random.Next(0, 365);
+                aux = random.Next(0, 385);
                 DateTime fechaAux = fechaBase.AddDays(aux);
 
                 aux = random.Next(1, totalColaboradores);

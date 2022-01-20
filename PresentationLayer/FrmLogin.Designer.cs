@@ -30,9 +30,6 @@ namespace PresentationLayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtVersion = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelUsuario = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.iconoUsuario = new System.Windows.Forms.PictureBox();
@@ -46,49 +43,22 @@ namespace PresentationLayer
             this.label4 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtVersion = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.recuerdameCheckBox = new System.Windows.Forms.CheckBox();
-            this.panel1.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoUsuario)).BeginInit();
             this.panelContraseña.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoContraseña)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
-            this.panel1.Controls.Add(this.txtVersion);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(275, 530);
-            this.panel1.TabIndex = 0;
-            // 
-            // txtVersion
-            // 
-            this.txtVersion.AutoSize = true;
-            this.txtVersion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVersion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtVersion.Location = new System.Drawing.Point(154, 493);
-            this.txtVersion.Name = "txtVersion";
-            this.txtVersion.Size = new System.Drawing.Size(0, 16);
-            this.txtVersion.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(21, 302);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bienvenido al sistema";
             // 
             // panelUsuario
             // 
@@ -259,6 +229,62 @@ namespace PresentationLayer
             this.tableLayoutPanel1.Size = new System.Drawing.Size(726, 530);
             this.tableLayoutPanel1.TabIndex = 23;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txtVersion);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(275, 530);
+            this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(67, 368);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 32);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "LAGARTO";
+            // 
+            // txtVersion
+            // 
+            this.txtVersion.AutoSize = true;
+            this.txtVersion.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVersion.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtVersion.Location = new System.Drawing.Point(154, 493);
+            this.txtVersion.Name = "txtVersion";
+            this.txtVersion.Size = new System.Drawing.Size(0, 16);
+            this.txtVersion.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(8, 326);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "BIENVENIDO AL SISTEMA";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.Cuchito;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(275, 287);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.recuerdameCheckBox);
@@ -303,8 +329,6 @@ namespace PresentationLayer
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmLogin_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panelUsuario.ResumeLayout(false);
             this.panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoUsuario)).EndInit();
@@ -312,6 +336,9 @@ namespace PresentationLayer
             this.panelContraseña.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoContraseña)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -338,5 +365,7 @@ namespace PresentationLayer
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox recuerdameCheckBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

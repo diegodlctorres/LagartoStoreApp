@@ -75,7 +75,9 @@ namespace PresentationLayer
 
                     cuenta = AppEngine.cuentaDAL.GetByID(0, usuario.Id);
 
-                    MessageBox.Show("Se agregó al colaborador exitosamente.", "Registrar nuevo colaborador", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("Se agregó al colaborador exitosamente.\n\n" +
+                        "USUARIO:\n" + cuenta.NombreDeUsuario + "\n\n" +
+                        "¡Bienvenido a la familia Lagarto!", "Registrar nuevo colaborador", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 }
                 else if (usuario is null)
                 {
