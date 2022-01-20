@@ -76,6 +76,7 @@ namespace PresentationLayer
             this.fechaInicioDtp = new System.Windows.Forms.DateTimePicker();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblTotalRegistros = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsulta)).BeginInit();
@@ -118,7 +119,7 @@ namespace PresentationLayer
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(76)))), ((int)(((byte)(136)))));
-            this.lblTitulo.Location = new System.Drawing.Point(187, 13);
+            this.lblTitulo.Location = new System.Drawing.Point(37, 13);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(363, 38);
             this.lblTitulo.TabIndex = 5;
@@ -340,17 +341,19 @@ namespace PresentationLayer
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel2.Controls.Add(this.panelLateral, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(934, 665);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1184, 665);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panelLateral
@@ -575,11 +578,20 @@ namespace PresentationLayer
             this.lblTotalRegistros.Name = "lblTotalRegistros";
             this.lblTotalRegistros.Size = new System.Drawing.Size(0, 17);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(234)))), ((int)(((byte)(243)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(937, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(244, 659);
+            this.panel1.TabIndex = 2;
+            // 
             // FrmComprasReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 665);
+            this.ClientSize = new System.Drawing.Size(1184, 665);
             this.Controls.Add(this.tableLayoutPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -642,6 +654,7 @@ namespace PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn cCodigoColaborador;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cTurno;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
